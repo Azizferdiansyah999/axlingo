@@ -15,13 +15,6 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "dev": "next dev",
-  "build": "next build",
-  "start": "next start",
-  "vercel-build": "npm run prepare && next build"},
-  "dependencies": {
-    "next": "^16.2.2",
-    "react": "^19.2.4",
-    "react-dom": "^19.2.4"
+    "test": "echo \"Error: no test specified\" && exit 1"
   }
 }

@@ -1,0 +1,39 @@
+Skema Database axlingo (Master Schema)
+1. Tabel Identitas (The Identity)
+• `profiles`: id (UUID), username (TEXT), avatar_url (TEXT), bio (TEXT), created_at (TIMESTAMP).
+
+• `user_stats`: user_id (FK), xp (INT), level (INT), diamonds (INT), total_lessons_completed (INT).
+
+• `user_hearts`: user_id (FK), current_hearts (INT), last_recharge_at (TIMESTAMP).
+
+2. Tabel Progress & Gamifikasi (The Engine)
+• `units`: id (UUID), title (TEXT), description (TEXT), order_index (INT).
+
+• `lessons`: id (UUID), unit_id (FK), title (TEXT), xp_reward (INT), order_index (INT).
+
+• `user_progress`: user_id (FK), lesson_id (FK), status (ENUM: 'locked', 'unlocked', 'completed'), high_score (INT).
+
+• `user_streaks`: user_id (FK), current_streak (INT), max_streak (INT), last_active_date (DATE).
+
+• `achievements`: id (UUID), title (TEXT), description (TEXT), icon_neon_url (TEXT), diamond_reward (INT).
+
+• `user_achievements`: user_id (FK), achievement_id (FK), earned_at (TIMESTAMP).
+
+3. Tabel Ekonomi & Inventory (The Shop)
+• `shop_items`: id (UUID), name (TEXT), description (TEXT), price_diamonds (INT), item_type (ENUM: 'powerup', 'cosmetic').
+
+• `user_inventory`: user_id (FK), item_id (FK), quantity (INT).
+
+• `transactions`: id (UUID), user_id (FK), amount_idr (DECIMAL), diamonds_gained (INT), status (ENUM: 'pending', 'settlement'), midtrans_id (TEXT).
+
+4. Tabel Kompetisi (The Leaderboard)
+• `leaderboards`: id (UUID), week_number (INT), year (INT), status (ENUM: 'active', 'finished').
+
+• `leaderboard_entries`: leaderboard_id (FK), user_id (FK), weekly_xp (INT).
+
+• `schools`: id (UUID), school_name (TEXT), location (TEXT).
+
+5. Tabel Konten & AI (The Content)
+• `questions`: id (UUID), lesson_id (FK), type (ENUM: 'code-breaker', 'vibe-check', 'match'), content_json (JSONB).
+
+• `chat_history`: id (UUID), user_id (FK), message_content (TEXT), role (ENUM: 'user', 'ai'), created_at (TIMESTAMP).

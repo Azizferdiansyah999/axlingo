@@ -1,0 +1,70 @@
+{
+  "units": [
+    {
+      "id": "unit_1",
+      "title": "Slang Foundation",
+      "description": "Master the absolute basics of digital dialects.",
+      "lessons": [
+        {
+          "id": "lesson_1",
+          "title": "Grass & Tea",
+          "xp_reward": 50,
+          "order": 1,
+          "questions": [
+            {
+              "id": "q1",
+              "type": "multiple-choice",
+              "prompt": "Touch grass",
+              "options": [
+                { "id": "a", "text": "Go outside & disconnect" },
+                { "id": "b", "text": "Start gardening" },
+                { "id": "c", "text": "Play soccer" },
+                { "id": "d", "text": "Stay inside" }
+              ],
+              "correctAnswer": "a"
+            },
+            {
+              "id": "q2",
+              "type": "multiple-choice",
+              "prompt": "Spill the tea",
+              "options": [
+                { "id": "a", "text": "Accidentally drop a drink" },
+                { "id": "b", "text": "Share the juicy gossip" },
+                { "id": "c", "text": "Keep a secret" },
+                { "id": "d", "text": "Tell a lie" }
+              ],
+              "correctAnswer": "b"
+            }
+          ]
+        },
+        {
+          "id": "lesson_2",
+          "title": "Vibe Checks",
+          "xp_reward": 75,
+          "order": 2,
+          "questions": [
+            {
+              "id": "q3",
+              "type": "multiple-choice",
+              "prompt": "He didn't pass the vibe check",
+              "options": [
+                { "id": "a", "text": "He failed his school exam" },
+                { "id": "b", "text": "His energy/attitude was weird" },
+                { "id": "c", "text": "He is very cool" },
+                { "id": "d", "text": "He forgot his wallet" }
+              ],
+              "correctAnswer": "b"
+            }
+          ]
+        },
+        {
+          "id": "lesson_3",
+          "title": "Ghosting Protocol",
+          "xp_reward": 100,
+          "order": 3,
+          "questions": []
+        }
+      ]
+    }
+  ]
+}

@@ -4,54 +4,65 @@ import React from 'react'
 import { Home, ShoppingBag, MessageSquare, Trophy, User, Zap, Heart } from 'lucide-react'
 import { useUser } from '@/hooks/useUser'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 
 export default function DashboardLayout({ children }) {
   const { profile, loading } = useUser()
+  const pathname = usePathname()
 
-  if (loading) return <div className="min-h-screen bg-[#121212] flex items-center justify-center text-purple-500 font-mono italic animate-pulse">BOOTING SYSTEM...</div>
+  if (loading) return (
+    <div className="min-h-screen bg-[#0e0e0e] flex items-center justify-center">
+      <div className="text-[#5cb8fd] font-mono italic animate-pulse">BOOTING SYSTEM...</div>
+    </div>
+  )
 
   return (
-    <div className="min-h-screen bg-[#121212] text-white flex">
-      {/* Sidebar */}
-      <aside className="w-20 lg:w-64 border-r border-white/5 bg-[#121212] flex flex-col p-4 fixed h-full z-20">
-        <div className="mb-12 px-2">
-          <h2 className="text-2xl font-black neon-purple-text hidden lg:block tracking-tighter">axlingo</h2>
-          <div className="w-8 h-8 lg:hidden bg-purple-600 rounded-lg flex items-center justify-center font-bold">A</div>
+    <div className="min-h-screen bg-[#0e0e0e] text-white flex">
+      {/* Sidebar: Midnight Ether */}
+      <aside className="w-20 lg:w-72 border-r border-[#1a1a1a] bg-[#0e0e0e] flex flex-col p-6 fixed h-full z-20">
+        <div className="mb-14 px-2">
+          <h2 className="text-3xl font-black text-[#ffffff] hidden lg:block tracking-tighter" style={{ fontFamily: "Space Grotesk, sans-serif" }}>
+            ax<span className="text-[#5cb8fd]">lingo</span>
+          </h2>
+          <div className="w-10 h-10 lg:hidden bg-[#5cb8fd] rounded-lg flex items-center justify-center font-bold text-[#0e0e0e]">A</div>
         </div>
 
         <nav className="flex-1 space-y-4">
-          <NavItem icon={<Home className="w-6 h-6" />} label="Learning Path" active href="/dashboard" />
-          <NavItem icon={<MessageSquare className="w-6 h-6" />} label="AI Buddy" href="/dashboard/chat" />
-          <NavItem icon={<Trophy className="w-6 h-6" />} label="Leaderboard" href="/dashboard/leaderboard" />
-          <NavItem icon={<ShoppingBag className="w-6 h-6" />} label="Vibe Shop" href="/dashboard/shop" />
+          <NavItem icon={<Home className="w-6 h-6" />} label="Learning Path" active={pathname === '/dashboard'} href="/dashboard" />
+          <NavItem icon={<MessageSquare className="w-6 h-6" />} label="AI Buddy" active={pathname === '/dashboard/chat'} href="/dashboard/chat" />
+          <NavItem icon={<Trophy className="w-6 h-6" />} label="Leaderboard" active={pathname === '/dashboard/leaderboard'} href="/dashboard/leaderboard" />
+          <NavItem icon={<ShoppingBag className="w-6 h-6" />} label="Gem Store" active={pathname === '/dashboard/shop'} href="/dashboard/shop" />
         </nav>
 
-        <div className="mt-auto pt-4 border-t border-white/5">
-          <NavItem icon={<User className="w-6 h-6" />} label="Profile" href="/dashboard/profile" />
+        <div className="mt-auto pt-6 border-t border-[#1a1a1a]">
+          <NavItem icon={<User className="w-6 h-6" />} label="Profile" active={pathname === '/dashboard/profile'} href="/dashboard/profile" />
         </div>
       </aside>
 
       {/* Main Content */}
-      <main className="flex-1 ml-20 lg:ml-64 flex flex-col min-h-screen">
-        {/* Topbar */}
-        <header className="h-16 border-b border-white/5 flex items-center justify-end px-8 gap-6 sticky top-0 bg-[#121212]/80 backdrop-blur-md z-10">
-          <div className="flex items-center gap-2 vibe-glass px-4 py-1.5 rounded-full border border-emerald-500/30 text-emerald-400 font-bold">
-            <Zap className="w-4 h-4 fill-emerald-400" />
-            <span>{profile?.user_stats?.xp || 0} XP</span>
+      <main className="flex-1 ml-20 lg:ml-72 flex flex-col min-h-screen relative">
+        {/* Topbar: Glassmorphism HUD */}
+        <header className="h-20 flex items-center justify-end px-8 gap-6 sticky top-0 bg-[#0e0e0e]/80 backdrop-blur-xl z-10 border-b border-[#1a1a1a]">
+          {/* XP */}
+          <div className="flex items-center gap-3 bg-[#131313] px-5 py-2.5 rounded-xl border-t border-[#c3ffcd]/50 shadow-[0_4px_20px_rgba(195,255,205,0.05)]">
+            <Zap className="w-5 h-5 fill-[#c3ffcd] text-[#c3ffcd]" />
+            <span className="text-[#ffffff] font-bold" style={{ fontFamily: "Space Grotesk, sans-serif" }}>{profile?.user_stats?.xp || 0}</span>
           </div>
           
-          <div className="flex items-center gap-2 vibe-glass px-4 py-1.5 rounded-full border border-pink-500/30 text-pink-400 font-bold">
-            <Heart className="w-4 h-4 fill-pink-400" />
-            <span>{profile?.user_hearts?.current_hearts || 0}</span>
+          {/* Hearts */}
+          <div className="flex items-center gap-3 bg-[#131313] px-5 py-2.5 rounded-xl border-t border-[#ff6e84]/50 shadow-[0_4px_20px_rgba(255,110,132,0.05)]">
+            <Heart className="w-5 h-5 fill-[#ff6e84] text-[#ff6e84]" />
+            <span className="text-[#ffffff] font-bold" style={{ fontFamily: "Space Grotesk, sans-serif" }}>{profile?.user_hearts?.current_hearts || 0}</span>
           </div>
 
-          <div className="flex items-center gap-2 vibe-glass px-4 py-1.5 rounded-full border border-blue-500/30 text-blue-400 font-bold">
-            <div className="w-4 h-4 bg-blue-400 octagon" style={{clipPath: 'polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%)'}}></div>
-            <span>{profile?.user_stats?.diamonds || 0}</span>
+          {/* Diamonds */}
+          <div className="flex items-center gap-3 bg-[#131313] px-5 py-2.5 rounded-xl border-t border-[#5cb8fd]/50 shadow-[0_4px_20px_rgba(92,184,253,0.05)]">
+            <div className="w-5 h-5 bg-[#5cb8fd] octagon shadow-[0_0_10px_#5cb8fd]"></div>
+            <span className="text-[#ffffff] font-bold" style={{ fontFamily: "Space Grotesk, sans-serif" }}>{profile?.user_stats?.diamonds || 0}</span>
           </div>
         </header>
 
-        <section className="p-8 flex-1">
+        <section className="flex-1 overflow-x-hidden">
           {children}
         </section>
       </main>
@@ -63,13 +74,14 @@ function NavItem({ icon, label, active, href }) {
   return (
     <Link 
       href={href}
-      className={`flex items-center gap-4 px-3 py-3 rounded-xl transition-all duration-300 group
-        ${active ? 'bg-purple-600/20 text-purple-400 border border-purple-500/20 shadow-[0_0_15px_rgba(155,89,182,0.1)]' : 'text-gray-500 hover:text-white hover:bg-white/5'}`}
+      className={`flex items-center gap-5 px-4 py-4 rounded-2xl transition-all duration-300 group relative overflow-hidden
+        ${active ? 'bg-[#1a1a1a] text-white' : 'text-[#adaaaa] hover:text-white hover:bg-[#131313]'}`}
     >
-      <div className={active ? 'text-purple-400' : 'group-hover:text-purple-400 transform group-hover:scale-110 transition-transform'}>
+      {active && <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#5cb8fd] shadow-[0_0_15px_#5cb8fd]"></div>}
+      <div className={`transform transition-transform ${active ? 'text-[#5cb8fd]' : 'group-hover:text-[#5cb8fd] group-hover:scale-110'}`}>
         {icon}
       </div>
-      <span className="font-bold hidden lg:block">{label}</span>
+      <span className="font-bold hidden lg:block tracking-wide">{label}</span>
     </Link>
   )
 }

@@ -9,52 +9,64 @@ export default function Home() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    const checkUser = async () => {
-      console.log("Checking user session...")
-      try {
-        const { data: { session }, error } = await supabase.auth.getSession()
-        
-        if (error) throw error
-
+    // ✅ Primary: listen for auth state change (fires after OAuth cookie→token sync)
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(
+      async (event, session) => {
         if (session) {
-          console.log("Session found, checking profile...")
-          const { data: profile } = await supabase
-            .from('profiles')
-            .select('id')
-            .eq('id', session.user.id)
-            .maybeSingle()
-
-          if (!profile) {
-            console.log("Profile not found, initializing...")
-            await supabase.from('profiles').upsert([
-              { id: session.user.id, username: session.user.email?.split('@')[0] || 'vibe_user' }
-            ], { onConflict: 'id' })
-            await supabase.from('user_stats').upsert([
-              { user_id: session.user.id, xp: 0, level: 1, diamonds: 10 }
-            ], { onConflict: 'user_id' })
-            await supabase.from('user_hearts').upsert([
-              { user_id: session.user.id, current_hearts: 5 }
-            ], { onConflict: 'user_id' })
-          }
+          await initProfileIfNeeded(session)
           router.push('/dashboard')
         } else {
-          console.log("No session found.")
           setLoading(false)
         }
-      } catch (err) {
-        console.error("Auth check failed:", err)
-        setLoading(false)
       }
-    }
-    
-    // Safety timeout: 5 seconds max for loading
-    const timer = setTimeout(() => {
-      setLoading(false)
-    }, 5000)
+    )
 
-    checkUser()
-    return () => clearTimeout(timer)
+    // ✅ Fallback: also check immediately in case session already exists
+    const checkExistingSession = async () => {
+      const { data: { session } } = await supabase.auth.getSession()
+      if (session) {
+        await initProfileIfNeeded(session)
+        router.push('/dashboard')
+        // Don't setLoading(false) here — we're redirecting
+      }
+      // Don't setLoading(false) here either — let onAuthStateChange handle it
+    }
+
+    checkExistingSession()
+
+    // Safety timeout
+    const timer = setTimeout(() => setLoading(false), 5000)
+
+    return () => {
+      subscription.unsubscribe()
+      clearTimeout(timer)
+    }
   }, [router])
+
+  // ✅ Extracted helper to avoid duplication
+  const initProfileIfNeeded = async (session) => {
+    try {
+      const { data: profile } = await supabase
+        .from('profiles')
+        .select('id')
+        .eq('id', session.user.id)
+        .maybeSingle()
+
+      if (!profile) {
+        await supabase.from('profiles').upsert([
+          { id: session.user.id, username: session.user.email?.split('@')[0] || 'vibe_user' }
+        ], { onConflict: 'id' })
+        await supabase.from('user_stats').upsert([
+          { user_id: session.user.id, xp: 0, level: 1, diamonds: 10 }
+        ], { onConflict: 'user_id' })
+        await supabase.from('user_hearts').upsert([
+          { user_id: session.user.id, current_hearts: 5 }
+        ], { onConflict: 'user_id' })
+      }
+    } catch (err) {
+      console.error("Profile init failed:", err)
+    }
+  }
 
   const handleGoogleLogin = async () => {
     const { error } = await supabase.auth.signInWithOAuth({

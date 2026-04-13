@@ -21,10 +21,10 @@
   --color-surface-container-low: #131313;
   --color-inverse-surface: #fcf9f8;
   --color-inverse-primary: #006498;
-  
+
   --font-headline: "Space Grotesk", sans-serif;
   --font-body: "Be Vietnam Pro", sans-serif;
-  
+
   --radius-DEFAULT: 0.125rem;
   --radius-lg: 0.25rem;
   --radius-xl: 0.5rem;
@@ -37,8 +37,8 @@ body {
   overflow-x: hidden;
 }
 
-.font-headline { 
-  font-family: 'Space Grotesk', sans-serif; 
+.font-headline {
+  font-family: 'Space Grotesk', sans-serif;
 }
 
 .glass-card {
@@ -54,7 +54,7 @@ body {
 
 .cyber-bg {
   background: radial-gradient(circle at 20% 30%, rgba(26, 26, 46, 1) 0%, rgba(14, 14, 14, 1) 100%),
-              radial-gradient(circle at 80% 70%, rgba(30, 11, 46, 1) 0%, rgba(14, 14, 14, 1) 100%);
+    radial-gradient(circle at 80% 70%, rgba(30, 11, 46, 1) 0%, rgba(14, 14, 14, 1) 100%);
 }
 
 .material-symbols-outlined {

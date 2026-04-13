@@ -1,81 +1,175 @@
-axlingo: 150-Step Extreme Detail Roadmap (Vibe Coder Edition)
-FASE 1: INFRASTRUCTURE & DATABASE (THE BEDROCK)
-1.1 Buat project Supabase baru (Region Singapore). 
-1.2 Ambil SUPABASE_URL & ANON_KEY dari Settings > API. 1.3 Tambahkan variabel tersebut ke file `.env.local`. 1.4 Konfigurasi Auth: Aktifkan Google Provider di Dashboard. 1.5 Setup Redirect URL ke localhost & Vercel domain di Supabase. 1.6 SQL Table: `profiles` (id uuid, username text, avatar_url text, bio text). 1.7 SQL Table: `stats` (user_id, xp int, level int, diamonds int, current_streak int). 1.8 SQL Table: `hearts` (user_id, current_hearts int, last_recharge_at timestamp). 1.9 SQL Table: `user_progress` (user_id, lesson_id text, is_completed bool, score int). 1.10 SQL Table: `achievements` (id, name, description, icon_url, reward_xp). 1.11 SQL Table: `user_achievements` (user_id, achievement_id, earned_at). 1.12 SQL Table: `inventory` (user_id, item_id text, quantity int). 1.13 Aktifkan RLS (Row Level Security) pada semua tabel. 1.14 Buat Policy: "Users can only select their own data". 1.15 Buat Policy: "Users can only update their own data". 1.16 SQL Function: `handle_new_user()` untuk insert stats & hearts otomatis. 1.17 SQL Trigger: `on_auth_user_created` untuk panggil function 1.16. 1.18 Test koneksi DB: Buat script fetch data profil kosong.
+# axlingo: 150-Step Extreme Detail Roadmap (Vibe Coder Edition)
 
-FASE 2: VERCEL SERVERLESS & AUTH UI (THE BACKBONE)
-2.1 Initialize Next.js project di Antigravity. 2.2 Push project ke GitHub repository. 2.3 Link GitHub ke Vercel untuk Auto-Deployment. 2.4 Install `@supabase/supabase-js` & `@supabase/auth-helpers-nextjs`. 2.5 Buat folder `src/app/api` untuk Serverless Functions. 2.6 Buat Serverless Route: `/api/auth/callback` untuk login flow. 2.7 Page: `/login` (Setup Deep Charcoal background). 2.8 UI: Card Glassmorphism untuk form login. 2.9 Implementasi "Login with Google" button (Neon Emerald style). 2.10 Implementasi Email/Password login. 2.11 Page: `/register` (Input username & avatar selection). 2.12 Middleware.ts: Proteksi route `/path`, `/shop`, `/chat`. 2.13 Test login: Cek apakah data masuk ke tabel `profiles`.
+## FASE 1: INFRASTRUCTURE & DATABASE (THE BEDROCK)
+[x] 1.1 Buat project Supabase baru (Region Singapore).
+[x] 1.2 Ambil SUPABASE_URL & ANON_KEY dari Settings > API.
+[x] 1.3 Tambahkan variabel tersebut ke file `.env.local`.
+[ ] 1.4 Konfigurasi Auth: Aktifkan Google Provider di Dashboard.
+[ ] 1.5 Setup Redirect URL ke localhost & Vercel domain di Supabase.
+[x] 1.6 SQL Table: `profiles` (id uuid, username text, avatar_url text, bio text).
+[x] 1.7 SQL Table: `stats` (user_id, xp int, level int, diamonds int, current_streak int).
+[x] 1.8 SQL Table: `hearts` (user_id, current_hearts int, last_recharge_at timestamp).
+[x] 1.9 SQL Table: `user_progress` (user_id, lesson_id text, is_completed bool, score int).
+[x] 1.10 SQL Table: `achievements` (id, name, description, icon_url, reward_xp).
+[x] 1.11 SQL Table: `user_achievements` (user_id, achievement_id, earned_at).
+[x] 1.12 SQL Table: `inventory` (user_id, item_id text, quantity int).
+[x] 1.13 Aktifkan RLS (Row Level Security) pada semua tabel.
+[x] 1.14 Buat Policy: "Users can only select their own data".
+[x] 1.15 Buat Policy: "Users can only update their own data".
+[x] 1.16 SQL Function: `handle_new_user()` untuk insert stats & hearts otomatis.
+[x] 1.17 SQL Trigger: `on_auth_user_created` untuk panggil function 1.16.
+[ ] 1.18 Test koneksi DB: Buat script fetch data profil kosong.
 
-FASE 3: CORE UI SHELL (THE INTERFACE)
-3.1 Global Visual Tokens & Shell (The Mood)
-3.1.1 Color Variables: Terapkan palet warna global:
-Background: Deep Charcoal (#121212) - Gelap total.
-Primary/Branding: Vivid Purple - Warna utama VibeLingo.
-Interactive: Electric Blue (#3498DB) - Tombol, Hover, Link.
-Success: Neon Emerald (#2ECC71) - Jawaban benar, Progress Bar penuh.
-Typography: Off-white & Bold Sans-serif - Futuristik dan mudah dibaca.
-3.1.2 The Glass Effect: Buat satu komponen CSS/Tailwind Class bernama vibe-glass yang memiliki: background-opacity: 0.1, backdrop-filter: blur(10px), border: 1px solid rgba(255,255,255,0.05), dan box-shadow: neon-purple.
-3.1.3 Shell Shell Layout:
-Sidebar Menu: Ikon vector minimalis. Saat menu aktif, ikon dan teksnya menyala warna Vivid Purple dengan efek glitch tipis (Framer Motion).
-Topbar: Menampilkan Diamond Rank dengan ikon Diamond 3D yang bersinar.
+## FASE 2: VERCEL SERVERLESS & AUTH UI (THE BACKBONE)
+[x] 2.1 Initialize Next.js project di Antigravity.
+[x] 2.2 Push project ke GitHub repository.
+[ ] 2.3 Link GitHub ke Vercel untuk Auto-Deployment.
+[x] 2.4 Install `@supabase/supabase-js` & `@supabase/auth-helpers-nextjs`.
+[x] 2.5 Buat folder `src/app/api` untuk Serverless Functions.
+[ ] 2.6 Buat Serverless Route: `/api/auth/callback` untuk login flow.
+[x] 2.7 Page: `/login` (Setup Deep Charcoal background).
+[x] 2.8 UI: Card Glassmorphism untuk form login.
+[x] 2.9 Implementasi "Login with Google" button (Neon Emerald style).
+[x] 2.10 Implementasi Email/Password login.
+[ ] 2.11 Page: `/register` (Input username & avatar selection).
+[x] 2.12 Middleware.ts: Proteksi route `/dashboard`, `/shop`, `/chat`.
+[ ] 2.13 Test login: Cek apakah data masuk ke tabel `profiles`.
 
-3.2 Modul 1: THE PATH (Learning Journey)
-3.2.1 Glowing Nodes: Node pelajaran berbentuk Oktagon (segi delapan) seperti instruksi desain.
-3.2.2 Path Logic Visual:
-Locked Octagon: Warna Charcoal redup dengan gembok neon berdenyut merah.
-Active Octagon: Warna Electric Blue, berputar perlahan (Slow Spin Framer Motion).
-Completed Octagon: Warna Neon Emerald, aura kemenangan hijau yang kuat.
-3.2.3 Technical Details: Gunakan SVG untuk menggambar garis penghubung antar node. Garis ini akan mengisi warna Electric Blue secara progresif dari node yang sudah selesai ke node berikutnya menggunakan animasi stroke-dashoffset.
-3.3 Modul 2: THE QUIZ (Slang Challenge)
-3.3.1 Question Card: Kartu besar tipe vibe-glass. Teks soal slang menggunakan ukuran sangat besar dan bold sans-serif.
-3.3.2 Answer Cards: Kartu pilihan jawaban berbentuk kartu neon bergaya kartu koleksi game. Saat dipilih, border-nya menyala Electric Blue.
-3.3.3 Feedback System: * * Correct:* Layar "bersinar" Neon Emerald sekilas.
-Wrong:* Layar "glitch" Merah dan bergetar (Shake effect Framer Motion).
-3.3.4 Power-up Button: Ikon Hint Neon di pojok yang bergetar jika user punya saldo Power-up.
-3.4 Modul 3: CHAT BUDDY (AI Interaction)
-3.4.1 Bubble Chat Glass: Gelembung pesan berbentuk vibe-glass dengan blur latar belakang tinggi.
-Pesan AI: Border ungu.
-Pesan User: Border biru.
-3.4.2 Voice Button: Tombol mic melingkar di tengah bawah yang memancarkan aura Electric Blue yang semakin besar sesuai volume suara user.
-3.4.3 Interaction: Gunakan AnimatePresence agar gelembung chat "slide-in" dari bawah dengan mulus.
-3.5 Modul 4: LEADERBOARD (School Rank)
-3.5.1 The Podium: Peringkat 1, 2, dan 3 ditampilkan dengan kartu vibe-glass yang memiliki bingkai neon logam (Emas, Perak, Perunggu).
-3.5.2 User List: List peringkat di bawah podium menggunakan kartu transparan tipis.
-3.5.3 Ranking Data: Ambil data realtime dari Supabase. Gunakan efek whileHover={{ scale: 1.03 }} pada setiap user di list agar terasa interaktif.
-3.6 Modul 5: MY PROFILE (Bento Dashboard)
-3.6.1 Bento Grid Layout: Dashboard user disusun menggunakan Bento Grid yang rapi dan profesional.
-3.6.2 Grid Components:
-XP Progress: Progress bar Neon Emerald yang mengisi.
-15-Day Streak: Ikon api neon yang berdenyut (meniru ikon api streak Duolingo tapi versi Cyberpunk).
-Trophy Collection: Ikon trophy vector minimalis bercahaya ungu.
-3.6.3 responsive Layout: Pastikan bento grid ini otomatis berubah menjadi 1 kolom di layar mobile.
-3.7 Modul 6: VIBE SHOP (The Market)
-3.7.1 Cyber-Catalog: Katalog kartu vibe-glass untuk Power-ups. Setiap kartu memiliki ikon minimalis (Streak Freeze, Hint Neon, dsb) bergaya vector bercahaya.
-3.7.2 Midtrans Window: Pastikan pop-up window Midtrans muncul di atas layar utama dengan latar belakang blur tinggi, menjaga nuansa Glassmorphism.
+## FASE 3: CORE UI SHELL (THE INTERFACE)
 
-## Checkpoint "Vibe Coder" untuk Fase 3:
-[ ] Global CSS: Terapkan palet warna (#121212, #2ECC71, dsb) ke dalam CSS Variables.
+**3.1 Global Visual Tokens & Shell (The Mood)**
+- 3.1.1 Color Variables: Terapkan palet warna global:
+  - Background: Deep Charcoal (#121212) - Gelap total.
+  - Primary/Branding: Vivid Purple - Warna utama VibeLingo.
+  - Interactive: Electric Blue (#3498DB) - Tombol, Hover, Link.
+  - Success: Neon Emerald (#2ECC71) - Jawaban benar, Progress Bar penuh.
+  - Typography: Off-white & Bold Sans-serif - Futuristik dan mudah dibaca.
+- 3.1.2 The Glass Effect: Buat satu komponen CSS/Tailwind Class bernama `vibe-glass` yang memiliki: background-opacity: 0.1, backdrop-filter: blur(10px), border: 1px solid rgba(255,255,255,0.05), dan box-shadow: neon-purple.
+- 3.1.3 Shell Shell Layout:
+  - Sidebar Menu: Ikon vector minimalis. Saat menu aktif, ikon dan teksnya menyala warna Vivid Purple dengan efek glitch tipis (Framer Motion).
+  - Topbar: Menampilkan Diamond Rank dengan ikon Diamond 3D yang bersinar.
+
+**3.2 Modul 1: THE PATH (Learning Journey)**
+- 3.2.1 Glowing Nodes: Node pelajaran berbentuk Oktagon (segi delapan) seperti instruksi desain.
+- 3.2.2 Path Logic Visual:
+  - Locked Octagon: Warna Charcoal redup dengan gembok neon berdenyut merah.
+  - Active Octagon: Warna Electric Blue, berputar perlahan (Slow Spin Framer Motion).
+  - Completed Octagon: Warna Neon Emerald, aura kemenangan hijau yang kuat.
+- 3.2.3 Technical Details: Gunakan SVG untuk menggambar garis penghubung antar node. Garis ini akan mengisi warna Electric Blue secara progresif dari node yang sudah selesai ke node berikutnya menggunakan animasi stroke-dashoffset.
+
+**3.3 Modul 2: THE QUIZ (Slang Challenge)**
+- 3.3.1 Question Card: Kartu besar tipe vibe-glass. Teks soal slang menggunakan ukuran sangat besar dan bold sans-serif.
+- 3.3.2 Answer Cards: Kartu pilihan jawaban berbentuk kartu neon bergaya kartu koleksi game. Saat dipilih, border-nya menyala Electric Blue.
+- 3.3.3 Feedback System:
+  - Correct: Layar "bersinar" Neon Emerald sekilas.
+  - Wrong: Layar "glitch" Merah dan bergetar (Shake effect Framer Motion).
+- 3.3.4 Power-up Button: Ikon Hint Neon di pojok yang bergetar jika user punya saldo Power-up.
+
+**3.4 Modul 3: CHAT BUDDY (AI Interaction)**
+- 3.4.1 Bubble Chat Glass: Gelembung pesan berbentuk vibe-glass dengan blur latar belakang tinggi.
+  - Pesan AI: Border ungu.
+  - Pesan User: Border biru.
+- 3.4.2 Voice Button: Tombol mic melingkar di tengah bawah yang memancarkan aura Electric Blue yang semakin besar sesuai volume suara user.
+- 3.4.3 Interaction: Gunakan AnimatePresence agar gelembung chat "slide-in" dari bawah dengan mulus.
+
+**3.5 Modul 4: LEADERBOARD (School Rank)**
+- 3.5.1 The Podium: Peringkat 1, 2, dan 3 ditampilkan dengan kartu vibe-glass yang memiliki bingkai neon logam (Emas, Perak, Perunggu).
+- 3.5.2 User List: List peringkat di bawah podium menggunakan kartu transparan tipis.
+- 3.5.3 Ranking Data: Ambil data realtime dari Supabase. Gunakan efek whileHover={{ scale: 1.03 }} pada setiap user di list agar terasa interaktif.
+
+**3.6 Modul 5: MY PROFILE (Bento Dashboard)**
+- 3.6.1 Bento Grid Layout: Dashboard user disusun menggunakan Bento Grid yang rapi dan profesional.
+- 3.6.2 Grid Components:
+  - XP Progress: Progress bar Neon Emerald yang mengisi.
+  - 15-Day Streak: Ikon api neon yang berdenyut (meniru ikon api streak Duolingo tapi versi Cyberpunk).
+  - Trophy Collection: Ikon trophy vector minimalis bercahaya ungu.
+- 3.6.3 Responsive Layout: Pastikan bento grid ini otomatis berubah menjadi 1 kolom di layar mobile.
+
+**3.7 Modul 6: VIBE SHOP (The Market)**
+- 3.7.1 Cyber-Catalog: Katalog kartu vibe-glass untuk Power-ups. Setiap kartu memiliki ikon minimalis (Streak Freeze, Hint Neon, dsb) bergaya vector bercahaya.
+- 3.7.2 Midtrans Window: Pastikan pop-up window Midtrans muncul di atas layar utama dengan latar belakang blur tinggi, menjaga nuansa Glassmorphism.
+
+**Checkpoint "Vibe Coder" untuk Fase 3:**
+[x] Global CSS: Terapkan palet warna (#121212, #2ECC71, dsb) ke dalam CSS Variables.
 [ ] AnimatePresence: Wajib digunakan di halaman Quiz agar pergantian soal terasa seperti aplikasi native yang halus.
 [ ] Zustand State: Cek apakah saldo Diamond dan Heart yang bersinar di Topbar selalu up-to-date dengan data di Supabase.
 
+## FASE 4: HEART & TIMER SERVERLESS LOGIC (THE ENERGY)
+[ ] 4.1 Frontend Hook: `useHearts` (Update UI setiap detik).
+[ ] 4.2 Logic: Hitung selisih waktu `last_recharge_at` vs `Date.now()`.
+[ ] 4.3 Serverless Route: `/api/hearts/sync` (Cek validasi waktu di server).
+[ ] 4.4 Logic Refill: Jika > 3 jam, update `current_hearts` +1 di DB.
+[ ] 4.5 UI: Progress bar kecil di bawah ikon Heart untuk cooldown.
+[ ] 4.6 UI: Modal "Out of Hearts" (Muncul saat heart = 0).
+[ ] 4.7 Action: Tombol "Refill Now" (Gunakan Diamond).
+[ ] 4.8 Action: Tombol "Watch Ad" (Mockup trigger AdMob).
+[ ] 4.9 Animation: Heart bergetar saat nyawa berkurang.
+[ ] 4.10 Test: Ubah timestamp di DB secara manual untuk tes auto-refill.
 
-FASE 4: HEART & TIMER SERVERLESS LOGIC (THE ENERGY)
-4.1 Frontend Hook: `useHearts` (Update UI setiap detik). 4.2 Logic: Hitung selisih waktu `last_recharge_at` vs `Date.now()`. 4.3 Serverless Route: `/api/hearts/sync` (Cek validasi waktu di server). 4.4 Logic Refill: Jika > 3 jam, update `current_hearts` +1 di DB. 4.5 UI: Progress bar kecil di bawah ikon Heart untuk cooldown. 4.6 UI: Modal "Out of Hearts" (Muncul saat heart = 0). 4.7 Action: Tombol "Refill Now" (Gunakan Diamond). 4.8 Action: Tombol "Watch Ad" (Mockup trigger AdMob). 4.9 Animation: Heart bergetar saat nyawa berkurang. 4.10 Test: Ubah timestamp di DB secara manual untuk tes auto-refill.
+## FASE 5: LEARNING PATH & PROGRESS SYSTEM (THE JOURNEY)
+[ ] 5.1 Data: Buat `lessons.json` (Struktur materi slang).
+[ ] 5.2 UI: Vertical Learning Path (Daftar Node).
+[ ] 5.3 Component: `PathNode` (Glowing octagon icon).
+[ ] 5.4 Logic: Map data `user_progress` ke UI Path.
+[ ] 5.5 Logic: Lock Node jika lesson sebelumnya belum `is_completed`.
+[ ] 5.6 UI: Garis neon yang menyambungkan antar Node.
+[ ] 5.7 Animation: Node aktif berdenyut (pulse effect).
+[ ] 5.8 Modal: "Lesson Overview" (Menampilkan target belajar & reward).
+[ ] 5.9 Action: Tombol "Start Lesson" (Cek ketersediaan Heart).
+[ ] 5.10 Transition: Fade-out Path ke Quiz Screen.
 
-FASE 5: LEARNING PATH & PROGRESS SYSTEM (THE JOURNEY)
-5.1 Data: Buat `lessons.json` (Struktur materi slang). 5.2 UI: Vertical Learning Path (Daftar Node). 5.3 Component: `PathNode` (Glowing octagon icon). 5.4 Logic: Map data `user_progress` ke UI Path. 5.5 Logic: Lock Node jika lesson sebelumnya belum `is_completed`. 5.6 UI: Garis neon yang menyambungkan antar Node. 5.7 Animation: Node aktif berdenyut (pulse effect). 5.8 Modal: "Lesson Overview" (Menampilkan target belajar & reward). 5.9 Action: Tombol "Start Lesson" (Cek ketersediaan Heart). 5.10 Transition: Fade-out Path ke Quiz Screen.
+## FASE 6: QUIZ ENGINE BASE (THE GAMEPLAY)
+[ ] 6.1 Component: `QuizManager` (Handle step-by-step quiz).
+[ ] 6.2 UI: Header Quiz (Progress bar & Exit button).
+[ ] 6.3 Logic: Randomize urutan soal dari database.
+[ ] 6.4 Logic: Handle jawaban benar (Play sound & Green Glow).
+[ ] 6.5 Logic: Handle jawaban salah (Vibration & Red Glitch).
+[ ] 6.6 Animation: Transisi geser (slide) antar soal.
+[ ] 6.7 Component: Result Page (XP earned, Diamonds earned).
+[ ] 6.8 Serverless Route: `/api/progress/complete` (Save score ke DB).
+[ ] 6.9 Logic: Update `stats` (Tambah XP & Diamonds) di database.
+[ ] 6.10 Logic: Cek `achievements` (Apakah user unlock sesuatu?).
 
-FASE 6: QUIZ ENGINE BASE (THE GAMEPLAY)
-6.1 Component: `QuizManager` (Handle step-by-step quiz). 6.2 UI: Header Quiz (Progress bar & Exit button). 6.3 Logic: Randomize urutan soal dari database. 6.4 Logic: Handle jawaban benar (Play sound & Green Glow). 6.5 Logic: Handle jawaban salah (Vibration & Red Glitch). 6.6 Animation: Transisi geser (slide) antar soal. 6.7 Component: Result Page (XP earned, Diamonds earned). 6.8 Serverless Route: `/api/progress/complete` (Save score ke DB). 6.9 Logic: Update `stats` (Tambah XP & Diamonds) di database. 6.10 Logic: Cek `achievements` (Apakah user unlock sesuatu?).
+## FASE 7: QUIZ TYPES IMPLEMENTATION (THE VARIETY)
+[ ] 7.1 Type 1: Translation Challenge (Pilihan Ganda).
+[ ] 7.2 Type 2: Context Dialogue (Chat-style bubbles).
+[ ] 7.3 Type 3: Code-Breaker (Drag & Drop scrambled words).
+[ ] 7.4 Type 4: Visual Vibe Check (Image-to-Slang cards).
+[ ] 7.5 Type 5: Cyber-Match (Menghubungkan garis neon Indo-Inggris).
+[ ] 7.6 Type 6: Fill in the Blank (Dropdown neon).
+[ ] 7.7 Type 7: Listening (Audio playback slang).
+[ ] 7.8 Test: Jalankan 1 lesson penuh dengan 7 tipe soal.
 
-FASE 7: QUIZ TYPES IMPLEMENTATION (THE VARIETY)
-7.1 Type 1: Translation Challenge (Pilihan Ganda). 7.2 Type 2: Context Dialogue (Chat-style bubbles). 7.3 Type 3: Code-Breaker (Drag & Drop scrambled words). 7.4 Type 4: Visual Vibe Check (Image-to-Slang cards). 7.5 Type 5: Cyber-Match (Menghubungkan garis neon Indo-Inggris). 7.6 Type 6: Fill in the Blank (Dropdown neon). 7.7 Type 7: Listening (Audio playback slang). 7.8 Test: Jalankan 1 lesson penuh dengan 7 tipe soal.
+## FASE 8: SHOP & MIDTRANS INTEGRATION (THE ECONOMY)
+[ ] 8.1 UI: Halaman Shop (Bento Grid layout).
+[ ] 8.2 Category: Power-ups (Streak Freeze, Hint, Second Chance).
+[ ] 8.3 Category: Diamond Top-up Packages.
+[ ] 8.4 Setup Midtrans Sandbox account & API Keys.
+[ ] 8.5 Serverless Route: `/api/payment/token` (Create Snap Token).
+[ ] 8.6 Frontend: Integrasi Snap.js popup payment.
+[ ] 8.7 Serverless Route: `/api/payment/webhook` (Handle Midtrans POST).
+[ ] 8.8 Logic: Verifikasi Signature Key Midtrans.
+[ ] 8.9 Logic: Update saldo Diamond user jika status 'settlement'.
+[ ] 8.10 UI: Notifikasi "Payment Successful" dengan efek konfeti.
 
-FASE 8: SHOP & MIDTRANS INTEGRATION (THE ECONOMY)
-8.1 UI: Halaman Shop (Bento Grid layout). 8.2 Category: Power-ups (Streak Freeze, Hint, Second Chance). 8.3 Category: Diamond Top-up Packages. 8.4 Setup Midtrans Sandbox account & API Keys. 8.5 Serverless Route: `/api/payment/token` (Create Snap Token). 8.6 Frontend: Integrasi Snap.js popup payment. 8.7 Serverless Route: `/api/payment/webhook` (Handle Midtrans POST). 8.8 Logic: Verifikasi Signature Key Midtrans. 8.9 Logic: Update saldo Diamond user jika status 'settlement'. 8.10 UI: Notifikasi "Payment Successful" dengan efek konfeti.
+## FASE 9: AI CHAT BUDDY & VOICE (THE SOCIAL)
+[ ] 9.1 Setup Gemini API / OpenAI API key di Vercel.
+[ ] 9.2 Serverless Route: `/api/chat/buddy` (Stream response).
+[ ] 9.3 UI: Messaging interface (Glassmorphism bubbles).
+[ ] 9.4 Logic: Kirim konteks profil user ke AI agar personal.
+[ ] 9.5 UI: Voice-to-Text button (Glowing Mic).
+[ ] 9.6 Implementation: Web Speech API untuk input suara.
+[ ] 9.7 Logic: AI memberikan feedback jika pengucapan user salah.
+[ ] 9.8 UI: Typing indicator animasi neon.
 
-FASE 9: AI CHAT BUDDY & VOICE (THE SOCIAL)
-9.1 Setup Gemini API / OpenAI API key di Vercel. 9.2 Serverless Route: `/api/chat/buddy` (Stream response). 9.3 UI: Messaging interface (Glassmorphism bubbles). 9.4 Logic: Kirim konteks profil user ke AI agar personal. 9.5 UI: Voice-to-Text button (Glowing Mic). 9.6 Implementation: Web Speech API untuk input suara. 9.7 Logic: AI memberikan feedback jika pengucapan user salah. 9.8 UI: Typing indicator animasi neon.
-
-FASE 10: LEADERBOARD, ACHIEVEMENTS & LAUNCH (THE FINISH)
-10.1 UI: Leaderboard (Daftar Top 10 User). 10.2 Logic: Realtime subscription ke tabel `stats` via Supabase. 10.3 UI: Achievement Gallery (Koleksi trophy). 10.4 Feature: Streak Counter (Api neon menyala jika login 2 hari berturut). 10.5 Optimization: Image optimization & Caching di Vercel. 10.6 PWA Setup: Tambahkan manifest & icons agar bisa install di HP. 10.7 SEO: Open Graph images untuk sharing ke social media. 10.8 Final Testing: Periksa semua link & alur pembayaran. 10.9 Go Live: Deploy production di Vercel. 10.10 Backup: Setup database backup mingguan di Supabase.
+## FASE 10: LEADERBOARD, ACHIEVEMENTS & LAUNCH (THE FINISH)
+[ ] 10.1 UI: Leaderboard (Daftar Top 10 User).
+[ ] 10.2 Logic: Realtime subscription ke tabel `stats` via Supabase.
+[ ] 10.3 UI: Achievement Gallery (Koleksi trophy).
+[ ] 10.4 Feature: Streak Counter (Api neon menyala jika login 2 hari berturut).
+[ ] 10.5 Optimization: Image optimization & Caching di Vercel.
+[ ] 10.6 PWA Setup: Tambahkan manifest & icons agar bisa install di HP.
+[ ] 10.7 SEO: Open Graph images untuk sharing ke social media.
+[ ] 10.8 Final Testing: Periksa semua link & alur pembayaran.
+[ ] 10.9 Go Live: Deploy production di Vercel.
+[ ] 10.10 Backup: Setup database backup mingguan di Supabase.

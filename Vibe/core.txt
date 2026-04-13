@@ -1,0 +1,209 @@
+# AXLINGO - CORE GAME DESIGN DOCUMENT
+# File ini adalah blueprint utama sistem pembelajaran Axlingo.
+# Baca sebelum membangun fitur apapun yang berkaitan dengan Learning Path.
+
+================================================================
+## MODEL STRUKTUR LEARNING PATH
+================================================================
+
+Bentuk: Vertikal zig-zag (scrollable ke bawah)
+Hierarki: CHAPTER (Babak) → NODE (Pelajaran) → QUIZ (Soal)
+
+Visualisasi:
+  [ CHAPTER 1: The Streets ]
+          🔷 Node 1 - Lingo Dasar
+             ↓
+          🔷 Node 2 - Slang Gaul
+             ↓
+          🔷 Node 3 - Ungkapan Trending
+             ↓
+          🔷 Node 4 - Ekspresi Emosi
+             ↓
+          🔷 Node 5 - Review & Mix
+             ↓
+        🏆 CHAPTER BOSS (Quiz Final Chapter)
+             ↓
+  ═══════════════════════════
+  [ CHAPTER 2: The Social Grid ]
+             ↓ ...
+
+
+================================================================
+## DAFTAR CHAPTER & NODE
+================================================================
+
+Total: 8 Chapter | 42 Node | ±252 Soal
+
+| No  | Nama Chapter         | Jumlah Node | Tema Materi                              |
+|-----|----------------------|-------------|------------------------------------------|
+|  1  | The Streets          |      5      | Slang sehari-hari, sapaan informal       |
+|  2  | The Social Grid      |      5      | Bahasa media sosial, caption, hashtag    |
+|  3  | The Gaming Zone      |      5      | Istilah gaming (noob, GG, clutch, meta)  |
+|  4  | The Hustle           |      5      | Bahasa dunia kerja/startup (grind, pitch)|
+|  5  | The Internet Culture |      6      | Meme, viral phrases, internet slang      |
+|  6  | The Vibes            |      5      | Bahasa musik & budaya pop                |
+|  7  | The Deep Lingo       |      6      | Slang tingkat lanjut, idiom modern       |
+|  8  | The Master Grid      |      5      | Gabungan semua + konteks budaya          |
+
+
+================================================================
+## STATUS NODE (OKTAGON)
+================================================================
+
+LOCKED    → Oktagon gelap + ikon gembok merah berdenyut
+             Kondisi: Node sebelumnya belum selesai
+
+ACTIVE    → Oktagon Electric Blue (#3498DB), animasi pulse/rotate
+             Kondisi: Siap dimainkan
+
+COMPLETED → Oktagon Neon Emerald (#2ECC71), aura hijau kuat
+             Kondisi: Selesai dengan skor ≥ 60%
+
+PERFECT   → Oktagon Emas berkilau + efek bintang
+             Kondisi: Selesai dengan skor 100%
+
+
+================================================================
+## CHAPTER BOSS
+================================================================
+
+- Setiap akhir chapter ada 1 BOSS NODE.
+- Boss berisi quiz campuran dari semua materi chapter tersebut.
+- Harus lulus Boss untuk membuka Chapter berikutnya.
+- Boss mengkonsumsi HEART seperti biasa.
+- Skor minimum untuk lulus Boss: 70% (lebih tinggi dari node biasa).
+
+
+================================================================
+## ACHIEVEMENT SYSTEM (PER CHAPTER BOSS)
+================================================================
+
+Setelah menyelesaikan Chapter Boss, muncul popup "Achievement Unlocked".
+
+| Chapter | Badge Name               | Tier     | Reward                         |
+|---------|--------------------------|----------|--------------------------------|
+|    1    | "Street Smart"           | 🥉 Bronze  | +50 XP, +5 💎                   |
+|    2    | "Influencer Mode"        | 🥉 Bronze  | +50 XP, +5 💎                   |
+|    3    | "Pro Gamer"              | 🥈 Silver  | +100 XP, +10 💎                  |
+|    4    | "Side Hustler"           | 🥈 Silver  | +100 XP, +10 💎                  |
+|    5    | "Viral King/Queen"       | 🥇 Gold    | +200 XP, +20 💎                  |
+|    6    | "Vibe Lord"              | 🥇 Gold    | +200 XP, +20 💎                  |
+|    7    | "Lingo Master"           | 💿 Platinum| +300 XP, +30 💎                  |
+|    8    | "AXLINGO LEGEND"         | 💎 Diamond | +500 XP, +50 💎 + Avatar Frame   |
+
+ACHIEVEMENT BONUS (In-Game, bukan per Chapter):
+- "On Fire"      → Selesaikan 3 node berturut-turut tanpa salah   (+20 XP)
+- "Speed Runner" → Selesaikan node dalam < 60 detik               (+15 XP)
+- "Flawless"     → Perfect score di 1 node                        (+25 XP)
+- "Untouchable"  → Selesaikan 1 chapter tanpa kehilangan heart     (+50 XP)
+- "Daily Grind"  → Login dan belajar 7 hari berturut-turut         (+100 XP)
+- "Collector"    → Kumpulkan 5 badge chapter                       (+50 💎)
+
+
+================================================================
+## SISTEM HEART (NYAWA)
+================================================================
+
+Kapasitas Awal    : 5 ❤️ (langsung setelah daftar)
+Berkurang         : -1 ❤️ setiap jawaban SALAH
+Regenerasi Otomatis: +1 ❤️ setiap 1 JAM (cooldown timer)
+Kapasitas Maksimum: 5 ❤️ (tidak bisa melebihi ini, kecuali ada event)
+Habis?            : Quiz terhenti, modal "Out of Hearts" muncul
+
+BONUS HEART:
+- Jawab 5 soal berturut-turut BENAR → dapat +1 ❤️ bonus (max 5)
+
+MODAL "OUT OF HEARTS":
+- Tampilkan waktu cooldown hingga heart berikutnya
+- Tombol "REFILL NOW"    → Gunakan 50 💎
+- Tombol "WATCH AD"      → Dapat +1 ❤️ (mockup AdMob)
+- Tombol "COME BACK LATER" → Tutup modal
+
+
+================================================================
+## POWER-UP (ITEM DI SHOP)
+================================================================
+
+| Item             | Harga | Fungsi                                          |
+|------------------|-------|-------------------------------------------------|
+| Streak Freeze    | 30 💎  | Melindungi streak jika tidak login 1 hari       |
+| Heart Refill     | 50 💎  | Langsung isi 5 ❤️ seketika                       |
+| Hint Neon        | 10 💎  | Skip/hint 1 soal tanpa kehilangan heart         |
+| Second Chance    | 20 💎  | Jawaban salah tidak mengurangi heart (1x pakai) |
+| XP Booster       | 40 💎  | 2x XP selama 30 menit                           |
+
+
+================================================================
+## SISTEM XP & LEVEL
+================================================================
+
+Rumus level up: XP_needed = floor(level * 100 * 1.5)
+
+| Level | Nama           | XP Dibutuhkan |
+|-------|----------------|---------------|
+|   1   | Newbie         |       0       |
+|   2   | Street Kid     |     100       |
+|   3   | Gaul Rookie    |     250       |
+|   4   | Lingo Cadet    |     500       |
+|   5   | Vibe Seeker    |     850       |
+|   6   | Slang Scout    |    1.300      |
+|   7   | Grid Hopper    |    1.900      |
+|   8   | Culture Rider  |    2.700      |
+|   9   | Trend Setter   |    3.700      |
+|  10   | Cyber Speaker  |    5.000      |
+| ...   | ...            |    ...        |
+|  20   | AXLINGO LEGEND |   10.000      |
+
+Reward per node selesai  : +30 XP, +3 💎
+Reward per boss selesai  : +80 XP, +10 💎 (+ Achievement badge)
+Reward perfect score     : +25 XP bonus
+
+
+================================================================
+## SISTEM DIAMOND (💎)
+================================================================
+
+Diamond adalah mata uang premium Axlingo.
+Didapat dari: Menyelesaikan node, achievement, daily login, atau beli.
+
+Digunakan untuk: Power-up di Shop, Refill Heart.
+
+Top-up packages (via Midtrans):
+- Starter Pack  : 100 💎   → Rp 15.000
+- Popular Pack  : 300 💎   → Rp 35.000
+- Best Value    : 700 💎   → Rp 70.000
+- Mega Pack     : 1500 💎  → Rp 130.000
+
+
+================================================================
+## LESSON OVERVIEW (MODAL SEBELUM MULAI NODE)
+================================================================
+
+Ketika user tap sebuah node ACTIVE, muncul modal preview:
+- Judul pelajaran
+- Thumbnail/ikon chapter
+- Target: "Kamu akan belajar X kata slang baru"
+- Estimasi waktu: ~3 menit
+- Reward yang akan didapat: XP + 💎
+- Cek ketersediaan heart (jika 0, tampilkan peringatan)
+- Tombol "START MISSION" → Mulai quiz
+
+
+================================================================
+## STREAK SYSTEM
+================================================================
+
+- Streak bertambah +1 setiap hari user menyelesaikan minimal 1 node.
+- Ditampilkan di Profile dan Topbar sebagai ikon api 🔥.
+- Streak HILANG jika tidak belajar 1 hari penuh (kecuali Streak Freeze aktif).
+- Milestone streak memberikan reward:
+  - 3 hari  : +20 XP
+  - 7 hari  : +50 XP, +10 💎
+  - 30 hari : +200 XP, +50 💎 + Badge "Iron Will"
+  - 100 hari: +500 XP, +100 💎 + Badge "Cyber Monk"
+
+
+================================================================
+# END OF CORE DESIGN DOCUMENT
+# Revisi terakhir: April 2026
+================================================================

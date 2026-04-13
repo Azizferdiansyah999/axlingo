@@ -1,0 +1,172 @@
+# AXLINGO DATABASE — MASTER TABLE LIST
+=======================================
+Source of Truth: 04_new_tables.sql
+Sync Date: 2026-04-13
+
+Daftar lengkap tabel di Supabase yang mencakup Identitas User, Sistem Learning Path,
+Gamifikasi, dan Statistik.
+
+---
+
+## 1. TABEL IDENTITAS & PROFIL
+Tabel yang menangani data dasar pengguna.
+
+- **profiles**
+  - id (UUID, PK, linked to auth.users)
+  - username (TEXT)
+  - avatar_url (TEXT)
+  - bio (TEXT)
+  - created_at (TIMESTAMPTZ)
+
+- **user_stats**
+  - user_id (UUID, FK profiles.id)
+  - xp (INT)
+  - level (INT) [NEW]
+  - diamonds (INT)
+  - current_streak (INT)
+  - total_lessons_completed (INT)
+
+- **user_hearts**
+  - user_id (UUID, FK profiles.id)
+  - current_hearts (INT)
+  - hearts_max (INT) [NEW]
+  - last_recharge_at (TIMESTAMPTZ)
+  - refill_at (TIMESTAMPTZ) [NEW]
+  - unlimited_until (TIMESTAMPTZ) [NEW]
+
+- **daily_goal** [NEW TABLE]
+  - id (UUID, PK)
+  - user_id (UUID, FK profiles.id, UNIQUE)
+  - xp_goal (INT)
+  - xp_today (INT)
+  - is_completed (BOOL)
+  - reset_at (TIMESTAMPTZ)
+  - updated_at (TIMESTAMPTZ)
+
+---
+
+## 2. SISTEM LEARNING PATH (KONTEN)
+Struktur kurikulum utama: Course > Section > Unit > Lesson > Exercise.
+
+- **courses** [NEW TABLE]
+  - id (UUID, PK)
+  - title (TEXT)
+  - description (TEXT)
+  - course_type (TEXT: formal/slang)
+  - language_target (TEXT)
+  - language_source (TEXT)
+  - icon_url (TEXT)
+  - total_xp (INT)
+  - is_active (BOOL)
+
+- **sections** [NEW TABLE]
+  - id (UUID, PK)
+  - course_id (UUID, FK courses.id)
+  - title (TEXT)
+  - description (TEXT)
+  - order_index (INT)
+  - theme_color (TEXT)
+  - tier (TEXT: street_level, grid_master, cyber_legend)
+  - is_locked (BOOL)
+  - xp_required (INT)
+
+- **units** [NEW TABLE]
+  - id (UUID, PK)
+  - section_id (UUID, FK sections.id) [NEW FK]
+  - title (TEXT)
+  - topic (TEXT)
+  - description (TEXT)
+  - order_index (INT)
+  - icon_emoji (TEXT)
+  - is_locked (BOOL)
+  - max_crown_level (INT)
+  - xp_per_crown (INT)
+
+- **lessons** [NEW TABLE]
+  - id (UUID, PK)
+  - unit_id (UUID, FK units.id)
+  - title (TEXT)
+  - type (TEXT: vocab_intro, slang_wild, boss, dll)
+  - order_index (INT)
+  - xp_reward (INT)
+  - pass_threshold (FLOAT)
+  - crown_level (INT)
+
+- **exercises** [NEW TABLE]
+  - id (UUID, PK)
+  - lesson_id (UUID, FK lessons.id)
+  - type (TEXT: multiple_choice, fill_blank, dll)
+  - order_index (INT)
+  - difficulty (INT)
+  - prompt (TEXT)
+  - correct_answer (JSONB)
+  - choices (JSONB)
+  - media_url (TEXT)
+  - explanation (TEXT)
+
+---
+
+## 3. PROGRES & GAMIFIKASI
+Pelacakan kemajuan belajar harian dan mingguan.
+
+- **user_progress**
+  - id (UUID, PK)
+  - user_id (UUID, FK profiles.id)
+  - lesson_id (TEXT: Sync with tablelist.md)
+  - status (TEXT: locked, active, completed)
+  - score (INT)
+  - xp_earned (INT) [NEW]
+  - hearts_used (INT) [NEW]
+  - completed_at (TIMESTAMPTZ) [NEW]
+
+- **unit_crown_progress** [NEW TABLE]
+  - id (UUID, PK)
+  - user_id (UUID, FK profiles.id)
+  - unit_id (UUID, FK units.id)
+  - crown_level (INT)
+  - lessons_completed (INT)
+  - xp_earned (INT)
+
+- **user_streaks** [NEW TABLE]
+  - id (UUID, PK)
+  - user_id (UUID, FK profiles.id, UNIQUE)
+  - current_streak (INT)
+  - longest_streak (INT)
+  - freeze_count (INT)
+  - last_active_date (DATE)
+
+- **leagues** [NEW TABLE]
+  - id (UUID, PK)
+  - user_id (UUID, FK profiles.id)
+  - league_tier (TEXT: Bronze, Silver, dll)
+  - weekly_xp (INT)
+  - rank (INT)
+  - week_start (DATE)
+
+---
+
+## 4. ACHIEVEMENTS & INVENTORY
+Sistem ekonomi dan penghargaan.
+
+- **achievements**
+  - id (UUID, PK)
+  - name (TEXT)
+  - description (TEXT)
+  - icon_url (TEXT)
+  - reward_xp (INT)
+  - badge_type (TEXT) [NEW]
+  - condition (JSONB) [NEW]
+
+- **user_achievements**
+  - user_id (UUID, FK profiles.id)
+  - achievement_id (UUID, FK achievements.id)
+  - earned_at (TIMESTAMPTZ)
+  - unlocked_at (TIMESTAMPTZ) [NEW]
+
+- **inventory**
+  - user_id (UUID, FK profiles.id)
+  - item_id (TEXT: Sync with tablelist.md)
+  - quantity (INT)
+
+---
+*Dokumen ini diperbarui secara otomatis berdasarkan File 04_new_tables.sql.*

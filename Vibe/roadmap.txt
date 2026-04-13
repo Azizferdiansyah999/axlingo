@@ -1,175 +1,395 @@
-# axlingo: 150-Step Extreme Detail Roadmap (Vibe Coder Edition)
+# AXLINGO — MASTER DEVELOPMENT ROADMAP v2.0
+# Terakhir diupdate: April 2026
+# Menggantikan roadmap.txt versi lama.
+# Format: [x] = selesai | [ ] = belum | [~] = sebagian
 
+================================================================
+## LEGENDA STATUS
+================================================================
+[x] = Selesai & terverifikasi
+[~] = Ada file/folder tapi belum fungsional
+[ ] = Belum dikerjakan sama sekali
+[!] = Critical — wajib selesai sebelum MVP launch
+
+================================================================
+## FASE 0: DOKUMENTASI & DESAIN (THE BLUEPRINT)
+================================================================
+
+DESIGN SYSTEM
+[x] 0.1  Design system "The Neon Pulse" dibuat di Stitch AI
+[x] 0.2  Color palette: #0e0e0e, #5cb8fd, #e67aff, #c3ffcd
+[x] 0.3  Typography: Space Grotesk + Be Vietnam Pro
+[x] 0.4  Panduan konversi Stitch → Next.js (Convert_to_nextjs.md)
+
+GAME DESIGN
+[x] 0.5  Core game mechanics (core.txt) — heart, XP, streak, diamond
+[x] 0.6  Course Slang blueprint v2.0 (path_2/slang.md) — 28 chapter, 186 node
+[x] 0.7  Course Formal blueprint (path_1/) — 24 section, 108 unit, 481 lesson
+[x] 0.8  DB schema model untuk kedua course (path_1/learning_path.md)
+
+DATABASE DESIGN
+[x] 0.9  Master schema (Table.txt) — semua tabel terdefinisi
+[x] 0.10 Tabel baru ditambahkan: courses, sections, exercises, unit_crown_progress,
+         leagues, daily_goal
+[x] 0.11 Tabel diupdate: units, lessons, user_progress, user_hearts,
+         user_streaks, achievements
+
+UI STITCH
+[x] 0.12 Stitch project: "AxLingo Cyberpunk UI/UX" (ID: 3961385787754245698)
+[x] 0.13 Screen: Login (mobile + desktop)
+[x] 0.14 Screen: Home/Dashboard (mobile + desktop)
+[x] 0.15 Screen: Quiz (mobile + desktop)
+[x] 0.16 Screen: Shop/Gem Store (mobile + desktop)
+[x] 0.17 Screen: Leaderboard (mobile + desktop)
+[x] 0.18 Screen: Profile (mobile + desktop)
+[x] 0.19 Screen: AI Chat (mobile + desktop)
+[x] 0.20 Screen: Google Login (mobile + desktop)
+[ ] 0.21 Screen: Learning Path → generate dari stitch_prompt_learning_path.md
+[ ] 0.22 Screen: Quiz Detail / Node Intro
+[ ] 0.23 Screen: Achievement Gallery
+
+================================================================
 ## FASE 1: INFRASTRUCTURE & DATABASE (THE BEDROCK)
-[x] 1.1 Buat project Supabase baru (Region Singapore).
-[x] 1.2 Ambil SUPABASE_URL & ANON_KEY dari Settings > API.
-[x] 1.3 Tambahkan variabel tersebut ke file `.env.local`.
-[ ] 1.4 Konfigurasi Auth: Aktifkan Google Provider di Dashboard.
-[ ] 1.5 Setup Redirect URL ke localhost & Vercel domain di Supabase.
-[x] 1.6 SQL Table: `profiles` (id uuid, username text, avatar_url text, bio text).
-[x] 1.7 SQL Table: `stats` (user_id, xp int, level int, diamonds int, current_streak int).
-[x] 1.8 SQL Table: `hearts` (user_id, current_hearts int, last_recharge_at timestamp).
-[x] 1.9 SQL Table: `user_progress` (user_id, lesson_id text, is_completed bool, score int).
-[x] 1.10 SQL Table: `achievements` (id, name, description, icon_url, reward_xp).
-[x] 1.11 SQL Table: `user_achievements` (user_id, achievement_id, earned_at).
-[x] 1.12 SQL Table: `inventory` (user_id, item_id text, quantity int).
-[x] 1.13 Aktifkan RLS (Row Level Security) pada semua tabel.
-[x] 1.14 Buat Policy: "Users can only select their own data".
-[x] 1.15 Buat Policy: "Users can only update their own data".
-[x] 1.16 SQL Function: `handle_new_user()` untuk insert stats & hearts otomatis.
-[x] 1.17 SQL Trigger: `on_auth_user_created` untuk panggil function 1.16.
-[ ] 1.18 Test koneksi DB: Buat script fetch data profil kosong.
+================================================================
 
-## FASE 2: VERCEL SERVERLESS & AUTH UI (THE BACKBONE)
-[x] 2.1 Initialize Next.js project di Antigravity.
-[x] 2.2 Push project ke GitHub repository.
-[ ] 2.3 Link GitHub ke Vercel untuk Auto-Deployment.
-[x] 2.4 Install `@supabase/supabase-js` & `@supabase/auth-helpers-nextjs`.
-[x] 2.5 Buat folder `src/app/api` untuk Serverless Functions.
-[ ] 2.6 Buat Serverless Route: `/api/auth/callback` untuk login flow.
-[x] 2.7 Page: `/login` (Setup Deep Charcoal background).
-[x] 2.8 UI: Card Glassmorphism untuk form login.
-[x] 2.9 Implementasi "Login with Google" button (Neon Emerald style).
-[x] 2.10 Implementasi Email/Password login.
-[ ] 2.11 Page: `/register` (Input username & avatar selection).
-[x] 2.12 Middleware.ts: Proteksi route `/dashboard`, `/shop`, `/chat`.
-[ ] 2.13 Test login: Cek apakah data masuk ke tabel `profiles`.
+SUPABASE SETUP
+[x] 1.1  Project Supabase dibuat (Region Singapore)
+[x] 1.2  SUPABASE_URL & ANON_KEY ada di .env.local
+[x] 1.3  Google OAuth Provider diaktifkan
+[ ] 1.4  Redirect URLs dikonfigurasi (localhost + Vercel domain)
 
+SQL — TABEL IDENTITAS
+[x] 1.5  Tabel: profiles (id, username, avatar_url, bio)
+[x] 1.6  Tabel: user_stats (user_id, xp, level, diamonds, total_lessons_completed)
+[x] 1.7  Tabel: user_hearts (user_id, current_hearts, hearts_max, refill_at,
+         unlimited_until, last_recharge_at)
+
+SQL — TABEL COURSE & KONTEN
+[ ] [!] 1.8  Tabel: courses (id, title, course_type, language_target, is_active)
+[ ] [!] 1.9  Tabel: sections (id, course_id, title, tier, order_index, xp_required, is_locked)
+[ ] [!] 1.10 Tabel: units (id, section_id, title, topic, icon_emoji, unlock_condition,
+              max_crown_level, xp_per_crown, is_locked, is_bonus)
+[ ] [!] 1.11 Tabel: lessons (id, unit_id, title, type, order_index, xp_reward,
+              pass_threshold, crown_level, is_bonus, estimated_minutes)
+[ ] [!] 1.12 Tabel: exercises (id, lesson_id, type, prompt, correct_answer, choices,
+              difficulty, score_weight, hint, explanation, tags)
+
+SQL — TABEL PROGRESS & GAMIFIKASI
+[x] 1.13 Tabel: user_progress (user_id, lesson_id, status, high_score)
+         [~] Perlu update field: score, xp_earned, hearts_used, attempts, completed_at
+[ ] 1.14 Tabel: unit_crown_progress (user_id, unit_id, crown_level, lessons_completed, xp_earned)
+[x] 1.15 Tabel: user_streaks (user_id, current_streak, max_streak, last_active_date)
+         [~] Perlu update field: longest_streak, freeze_count
+[x] 1.16 Tabel: achievements (id, title, description, icon_neon_url, diamond_reward)
+         [~] Perlu update field: badge_type, condition (JSONB)
+[x] 1.17 Tabel: user_achievements (user_id, achievement_id, earned_at)
+[ ] 1.18 Tabel: daily_goal (user_id, xp_goal, xp_today, is_completed, reset_at)
+
+SQL — TABEL EKONOMI
+[x] 1.19 Tabel: shop_items (id, name, description, price_diamonds, item_type)
+[x] 1.20 Tabel: user_inventory (user_id, item_id, quantity)
+[x] 1.21 Tabel: transactions (id, user_id, amount_idr, diamonds_gained, status, midtrans_id)
+
+SQL — TABEL KOMPETISI
+[x] 1.22 Tabel: leaderboards (id, week_number, year, status)
+[x] 1.23 Tabel: leaderboard_entries (leaderboard_id, user_id, weekly_xp)
+[ ] 1.24 Tabel: leagues (user_id, league_tier, weekly_xp, rank, promotion_status, week_start)
+[x] 1.25 Tabel: schools (id, school_name, location)
+
+SQL — TABEL KONTEN & AI
+[x] 1.26 Tabel: chat_history (id, user_id, message_content, role, created_at)
+         NOTE: Tabel `questions` lama → deprecated, digantikan `exercises`
+
+SQL — KEAMANAN & OTOMASI
+[x] 1.27 RLS aktif pada semua tabel utama
+[x] 1.28 Policy: SELECT hanya data sendiri
+[x] 1.29 Policy: UPDATE hanya data sendiri
+[x] 1.30 SQL Function: handle_new_user() — auto insert profiles, stats, hearts saat daftar
+[x] 1.31 SQL Trigger: on_auth_user_created
+
+SQL — SEED DATA
+[ ] [!] 1.32 Seed: 1 row di tabel courses (type='slang', title='Axlingo Slang')
+[ ] [!] 1.33 Seed: 3 rows di sections (Tier 1, 2, 3)
+[ ] [!] 1.34 Seed: 28 rows di units (Chapter 1–28 dari slang.md)
+[ ] [!] 1.35 Seed: 196 rows di lessons (Node 1–6 + Boss per chapter)
+[ ] 1.36 Seed: Sample exercises untuk Chapter 1 (testing)
+
+================================================================
+## FASE 2: AUTH & ROUTING (THE BACKBONE)
+================================================================
+
+[x] 2.1  Next.js project initialized
+[x] 2.2  GitHub repository connected
+[ ] 2.3  Vercel auto-deploy dari GitHub dikonfigurasi
+[x] 2.4  Dependencies: @supabase/supabase-js, @supabase/auth-helpers-nextjs,
+         framer-motion installed
+[x] 2.5  Auth callback route: /api/auth/callback
+[x] 2.6  Page: /login (glassmorphism, Google OAuth + email/password)
+[ ] 2.7  Page: /register (username input + avatar selection)
+[x] 2.8  Middleware: proteksi /dashboard, /shop, /chat
+[ ] 2.9  Test: login → data masuk ke tabel profiles ✓
+[ ] 2.10 Test: user baru → trigger handle_new_user berjalan ✓
+
+================================================================
 ## FASE 3: CORE UI SHELL (THE INTERFACE)
+================================================================
 
-**3.1 Global Visual Tokens & Shell (The Mood)**
-- 3.1.1 Color Variables: Terapkan palet warna global:
-  - Background: Deep Charcoal (#121212) - Gelap total.
-  - Primary/Branding: Vivid Purple - Warna utama VibeLingo.
-  - Interactive: Electric Blue (#3498DB) - Tombol, Hover, Link.
-  - Success: Neon Emerald (#2ECC71) - Jawaban benar, Progress Bar penuh.
-  - Typography: Off-white & Bold Sans-serif - Futuristik dan mudah dibaca.
-- 3.1.2 The Glass Effect: Buat satu komponen CSS/Tailwind Class bernama `vibe-glass` yang memiliki: background-opacity: 0.1, backdrop-filter: blur(10px), border: 1px solid rgba(255,255,255,0.05), dan box-shadow: neon-purple.
-- 3.1.3 Shell Shell Layout:
-  - Sidebar Menu: Ikon vector minimalis. Saat menu aktif, ikon dan teksnya menyala warna Vivid Purple dengan efek glitch tipis (Framer Motion).
-  - Topbar: Menampilkan Diamond Rank dengan ikon Diamond 3D yang bersinar.
+GLOBAL STYLES
+[x] 3.1  globals.css: CSS variables warna & font
+[x] 3.2  Utility class: .vibe-glass (glassmorphism)
+[x] 3.3  CSS: animasi glitch, pulse, neon-glow
+[x] 3.4  Font: Space Grotesk + Be Vietnam Pro dari Google Fonts
 
-**3.2 Modul 1: THE PATH (Learning Journey)**
-- 3.2.1 Glowing Nodes: Node pelajaran berbentuk Oktagon (segi delapan) seperti instruksi desain.
-- 3.2.2 Path Logic Visual:
-  - Locked Octagon: Warna Charcoal redup dengan gembok neon berdenyut merah.
-  - Active Octagon: Warna Electric Blue, berputar perlahan (Slow Spin Framer Motion).
-  - Completed Octagon: Warna Neon Emerald, aura kemenangan hijau yang kuat.
-- 3.2.3 Technical Details: Gunakan SVG untuk menggambar garis penghubung antar node. Garis ini akan mengisi warna Electric Blue secara progresif dari node yang sudah selesai ke node berikutnya menggunakan animasi stroke-dashoffset.
+DASHBOARD SHELL
+[x] 3.5  app/dashboard/layout.js — sidebar + topbar shell
+[x] 3.6  Topbar: glassmorphism + neon stroke
+[x] 3.7  Sidebar nav: glitch effect pada active item
+[~] 3.8  Bottom nav mobile (ada tapi perlu cek)
 
-**3.3 Modul 2: THE QUIZ (Slang Challenge)**
-- 3.3.1 Question Card: Kartu besar tipe vibe-glass. Teks soal slang menggunakan ukuran sangat besar dan bold sans-serif.
-- 3.3.2 Answer Cards: Kartu pilihan jawaban berbentuk kartu neon bergaya kartu koleksi game. Saat dipilih, border-nya menyala Electric Blue.
-- 3.3.3 Feedback System:
-  - Correct: Layar "bersinar" Neon Emerald sekilas.
-  - Wrong: Layar "glitch" Merah dan bergetar (Shake effect Framer Motion).
-- 3.3.4 Power-up Button: Ikon Hint Neon di pojok yang bergetar jika user punya saldo Power-up.
+HALAMAN DASHBOARD
+[~] 3.9   app/dashboard/page.js — home (ada tapi belum terhubung ke DB nyata)
+[~] 3.10  app/dashboard/quiz/ — folder ada, implementasi belum lengkap
+[~] 3.11  app/dashboard/leaderboard/ — folder ada, UI belum
+[~] 3.12  app/dashboard/profile/ — folder ada, UI belum
+[ ] [!] 3.13 app/dashboard/path/page.js — LEARNING PATH belum dibuat
+[ ] 3.14  app/dashboard/shop/page.js — belum dibuat
+[ ] 3.15  app/dashboard/chat/page.js — belum dibuat
+[ ] 3.16  app/dashboard/achievements/page.js — belum dibuat
 
-**3.4 Modul 3: CHAT BUDDY (AI Interaction)**
-- 3.4.1 Bubble Chat Glass: Gelembung pesan berbentuk vibe-glass dengan blur latar belakang tinggi.
-  - Pesan AI: Border ungu.
-  - Pesan User: Border biru.
-- 3.4.2 Voice Button: Tombol mic melingkar di tengah bawah yang memancarkan aura Electric Blue yang semakin besar sesuai volume suara user.
-- 3.4.3 Interaction: Gunakan AnimatePresence agar gelembung chat "slide-in" dari bawah dengan mulus.
+KOMPONEN LEARNING PATH
+[ ] [!] 3.17 components/learning-path/PathMap.js — zig-zag node renderer
+[ ] [!] 3.18 components/learning-path/NodeOctagon.js — 4 status (locked/active/completed/perfect)
+[ ] [!] 3.19 components/learning-path/TierBanner.js — section header per tier
+[ ] [!] 3.20 components/learning-path/ChapterBoss.js — boss node variant
+[ ] [!] 3.21 components/learning-path/NodeModal.js — modal sebelum start lesson
 
-**3.5 Modul 4: LEADERBOARD (School Rank)**
-- 3.5.1 The Podium: Peringkat 1, 2, dan 3 ditampilkan dengan kartu vibe-glass yang memiliki bingkai neon logam (Emas, Perak, Perunggu).
-- 3.5.2 User List: List peringkat di bawah podium menggunakan kartu transparan tipis.
-- 3.5.3 Ranking Data: Ambil data realtime dari Supabase. Gunakan efek whileHover={{ scale: 1.03 }} pada setiap user di list agar terasa interaktif.
+KOMPONEN QUIZ
+[ ] [!] 3.22 components/quiz/QuizManager.js — orchestrator quiz flow
+[ ] [!] 3.23 components/quiz/QuizHeader.js — progress bar + exit + hearts
+[ ] [!] 3.24 components/quiz/ExerciseCard.js — tampilan soal
+[ ] [!] 3.25 components/quiz/AnswerChoices.js — pilihan jawaban dengan feedback
+[ ] [!] 3.26 components/quiz/ResultScreen.js — XP + diamonds + badge earned
+[ ] 3.27 components/quiz/FeedbackOverlay.js — green glow / red glitch saat jawab
 
-**3.6 Modul 5: MY PROFILE (Bento Dashboard)**
-- 3.6.1 Bento Grid Layout: Dashboard user disusun menggunakan Bento Grid yang rapi dan profesional.
-- 3.6.2 Grid Components:
-  - XP Progress: Progress bar Neon Emerald yang mengisi.
-  - 15-Day Streak: Ikon api neon yang berdenyut (meniru ikon api streak Duolingo tapi versi Cyberpunk).
-  - Trophy Collection: Ikon trophy vector minimalis bercahaya ungu.
-- 3.6.3 Responsive Layout: Pastikan bento grid ini otomatis berubah menjadi 1 kolom di layar mobile.
+KOMPONEN UMUM
+[ ] 3.28 components/ui/HeartDisplay.js — hearts + countdown timer
+[ ] 3.29 components/ui/XPBar.js — XP progress gradient
+[ ] 3.30 components/ui/DiamondCounter.js — animated counter
+[ ] 3.31 components/ui/StreakBadge.js — fire streak icon
+[ ] 3.32 components/ui/AchievementPopup.js — modal achievement unlocked
+[ ] 3.33 components/ui/NeonButton.js — reusable button variants
 
-**3.7 Modul 6: VIBE SHOP (The Market)**
-- 3.7.1 Cyber-Catalog: Katalog kartu vibe-glass untuk Power-ups. Setiap kartu memiliki ikon minimalis (Streak Freeze, Hint Neon, dsb) bergaya vector bercahaya.
-- 3.7.2 Midtrans Window: Pastikan pop-up window Midtrans muncul di atas layar utama dengan latar belakang blur tinggi, menjaga nuansa Glassmorphism.
+================================================================
+## FASE 4: HOOKS & STATE MANAGEMENT (THE BRAIN)
+================================================================
 
-**Checkpoint "Vibe Coder" untuk Fase 3:**
-[x] Global CSS: Terapkan palet warna (#121212, #2ECC71, dsb) ke dalam CSS Variables.
-[ ] AnimatePresence: Wajib digunakan di halaman Quiz agar pergantian soal terasa seperti aplikasi native yang halus.
-[ ] Zustand State: Cek apakah saldo Diamond dan Heart yang bersinar di Topbar selalu up-to-date dengan data di Supabase.
+[x] 4.1  hooks/useUser.js — fetch profil user dari Supabase
+[ ] [!] 4.2  hooks/useLearningPath.js — fetch courses→sections→units→lessons dari DB
+[ ] [!] 4.3  hooks/useUserProgress.js — status locked/active/completed per node
+[ ] [!] 4.4  hooks/useHearts.js — real-time countdown + auto-refill logic
+[ ] 4.5  hooks/useStreak.js — cek streak harian + freeze logic
+[ ] 4.6  hooks/useDailyGoal.js — XP goal harian + reset tengah malam
+[ ] 4.7  hooks/useAchievements.js — cek dan trigger badge unlock
 
-## FASE 4: HEART & TIMER SERVERLESS LOGIC (THE ENERGY)
-[ ] 4.1 Frontend Hook: `useHearts` (Update UI setiap detik).
-[ ] 4.2 Logic: Hitung selisih waktu `last_recharge_at` vs `Date.now()`.
-[ ] 4.3 Serverless Route: `/api/hearts/sync` (Cek validasi waktu di server).
-[ ] 4.4 Logic Refill: Jika > 3 jam, update `current_hearts` +1 di DB.
-[ ] 4.5 UI: Progress bar kecil di bawah ikon Heart untuk cooldown.
-[ ] 4.6 UI: Modal "Out of Hearts" (Muncul saat heart = 0).
-[ ] 4.7 Action: Tombol "Refill Now" (Gunakan Diamond).
-[ ] 4.8 Action: Tombol "Watch Ad" (Mockup trigger AdMob).
-[ ] 4.9 Animation: Heart bergetar saat nyawa berkurang.
-[ ] 4.10 Test: Ubah timestamp di DB secara manual untuk tes auto-refill.
+================================================================
+## FASE 5: API ROUTES (THE NERVOUS SYSTEM)
+================================================================
 
-## FASE 5: LEARNING PATH & PROGRESS SYSTEM (THE JOURNEY)
-[ ] 5.1 Data: Buat `lessons.json` (Struktur materi slang).
-[ ] 5.2 UI: Vertical Learning Path (Daftar Node).
-[ ] 5.3 Component: `PathNode` (Glowing octagon icon).
-[ ] 5.4 Logic: Map data `user_progress` ke UI Path.
-[ ] 5.5 Logic: Lock Node jika lesson sebelumnya belum `is_completed`.
-[ ] 5.6 UI: Garis neon yang menyambungkan antar Node.
-[ ] 5.7 Animation: Node aktif berdenyut (pulse effect).
-[ ] 5.8 Modal: "Lesson Overview" (Menampilkan target belajar & reward).
-[ ] 5.9 Action: Tombol "Start Lesson" (Cek ketersediaan Heart).
-[ ] 5.10 Transition: Fade-out Path ke Quiz Screen.
+[ ] [!] 5.1  /api/path/progress — GET user progress per lesson
+[ ] [!] 5.2  /api/quiz/submit — POST jawaban + update score/XP/hearts
+[ ] [!] 5.3  /api/hearts/sync — GET status hearts + handle refill
+[ ] 5.4  /api/hearts/refill — POST pakai diamond untuk refill
+[ ] 5.5  /api/streak/check — POST cek dan update streak harian
+[ ] 5.6  /api/achievements/check — POST cek kondisi achievement unlock
+[ ] 5.7  /api/dailygoal/update — POST update xp_today
+[ ] 5.8  /api/payment/token — POST create Midtrans Snap Token
+[ ] 5.9  /api/payment/webhook — POST handle notifikasi Midtrans
+[ ] 5.10 /api/chat/buddy — POST/STREAM kirim ke AI & dapat respons
 
-## FASE 6: QUIZ ENGINE BASE (THE GAMEPLAY)
-[ ] 6.1 Component: `QuizManager` (Handle step-by-step quiz).
-[ ] 6.2 UI: Header Quiz (Progress bar & Exit button).
-[ ] 6.3 Logic: Randomize urutan soal dari database.
-[ ] 6.4 Logic: Handle jawaban benar (Play sound & Green Glow).
-[ ] 6.5 Logic: Handle jawaban salah (Vibration & Red Glitch).
-[ ] 6.6 Animation: Transisi geser (slide) antar soal.
-[ ] 6.7 Component: Result Page (XP earned, Diamonds earned).
-[ ] 6.8 Serverless Route: `/api/progress/complete` (Save score ke DB).
-[ ] 6.9 Logic: Update `stats` (Tambah XP & Diamonds) di database.
-[ ] 6.10 Logic: Cek `achievements` (Apakah user unlock sesuatu?).
+================================================================
+## FASE 6: LEARNING PATH FEATURE (THE JOURNEY)
+================================================================
 
-## FASE 7: QUIZ TYPES IMPLEMENTATION (THE VARIETY)
-[ ] 7.1 Type 1: Translation Challenge (Pilihan Ganda).
-[ ] 7.2 Type 2: Context Dialogue (Chat-style bubbles).
-[ ] 7.3 Type 3: Code-Breaker (Drag & Drop scrambled words).
-[ ] 7.4 Type 4: Visual Vibe Check (Image-to-Slang cards).
-[ ] 7.5 Type 5: Cyber-Match (Menghubungkan garis neon Indo-Inggris).
-[ ] 7.6 Type 6: Fill in the Blank (Dropdown neon).
-[ ] 7.7 Type 7: Listening (Audio playback slang).
-[ ] 7.8 Test: Jalankan 1 lesson penuh dengan 7 tipe soal.
+[ ] [!] 6.1  Buat SQL seed data untuk Slang Course (1.32–1.35)
+[ ] [!] 6.2  Buat page /dashboard/path/page.js dari Stitch prompt
+[ ] [!] 6.3  Implementasi PathMap — zig-zag dengan connector SVG/CSS
+[ ] [!] 6.4  Logic unlock: node terbuka jika node sebelumnya completed
+[ ] [!] 6.5  Tier Banner: 3 tier sebagai section separator
+[ ] [!] 6.6  Node states: locked 🔒 | active ⚡ | completed ✓ | perfect ⭐
+[ ] [!] 6.7  Chapter Boss: visual berbeda, harus selesai semua node dulu
+[ ] [!] 6.8  Modal Lesson Overview — preview sebelum mulai (XP, diamond, waktu)
+[ ] [!] 6.9  Cek Heart sebelum mulai lesson — block jika heart = 0
+[ ] 6.10 Animasi: pulse pada node aktif, animated connector lines
+[ ] 6.11 Progress: "Chapter 2 of 10" pada tier banner
+[ ] 6.12 Responsive: mobile zig-zag, desktop wider spread
 
-## FASE 8: SHOP & MIDTRANS INTEGRATION (THE ECONOMY)
-[ ] 8.1 UI: Halaman Shop (Bento Grid layout).
-[ ] 8.2 Category: Power-ups (Streak Freeze, Hint, Second Chance).
-[ ] 8.3 Category: Diamond Top-up Packages.
-[ ] 8.4 Setup Midtrans Sandbox account & API Keys.
-[ ] 8.5 Serverless Route: `/api/payment/token` (Create Snap Token).
-[ ] 8.6 Frontend: Integrasi Snap.js popup payment.
-[ ] 8.7 Serverless Route: `/api/payment/webhook` (Handle Midtrans POST).
-[ ] 8.8 Logic: Verifikasi Signature Key Midtrans.
-[ ] 8.9 Logic: Update saldo Diamond user jika status 'settlement'.
-[ ] 8.10 UI: Notifikasi "Payment Successful" dengan efek konfeti.
+================================================================
+## FASE 7: QUIZ ENGINE (THE GAMEPLAY)
+================================================================
 
-## FASE 9: AI CHAT BUDDY & VOICE (THE SOCIAL)
-[ ] 9.1 Setup Gemini API / OpenAI API key di Vercel.
-[ ] 9.2 Serverless Route: `/api/chat/buddy` (Stream response).
-[ ] 9.3 UI: Messaging interface (Glassmorphism bubbles).
-[ ] 9.4 Logic: Kirim konteks profil user ke AI agar personal.
-[ ] 9.5 UI: Voice-to-Text button (Glowing Mic).
-[ ] 9.6 Implementation: Web Speech API untuk input suara.
-[ ] 9.7 Logic: AI memberikan feedback jika pengucapan user salah.
-[ ] 9.8 UI: Typing indicator animasi neon.
+[ ] [!] 7.1  QuizManager: load exercises dari DB berdasarkan lesson_id
+[ ] [!] 7.2  Flow: tampil soal → user jawab → feedback → next soal
+[ ] [!] 7.3  Scoring: hitung score, bandingkan dengan pass_threshold
+[ ] [!] 7.4  Heart logic: -1 heart saat jawab salah
+[ ] [!] 7.5  Jika heart = 0 di tengah quiz: hentikan, tampilkan modal out-of-hearts
+[ ] [!] 7.6  Selesai quiz: tampilkan ResultScreen (XP, diamonds, badge)
+[ ] [!] 7.7  Simpan progress ke DB (user_progress + unit_crown_progress)
+[ ] [!] 7.8  Update user_stats: tambah XP + diamonds
+[ ] 7.9  Exercise Type: multiple_choice (Tier 1)
+[ ] 7.10 Exercise Type: true_false (Tier 1)
+[ ] 7.11 Exercise Type: fill_blank (Tier 2)
+[ ] 7.12 Exercise Type: match_pairs (Tier 2)
+[ ] 7.13 Exercise Type: reorder_words (Tier 3)
+[ ] 7.14 Exercise Type: translate (Tier 3)
+[ ] 7.15 Animasi: green glow jawaban benar, red glitch jawaban salah
+[ ] 7.16 Bonus: 5 jawaban benar berturut → +1 heart bonus
 
-## FASE 10: LEADERBOARD, ACHIEVEMENTS & LAUNCH (THE FINISH)
-[ ] 10.1 UI: Leaderboard (Daftar Top 10 User).
-[ ] 10.2 Logic: Realtime subscription ke tabel `stats` via Supabase.
-[ ] 10.3 UI: Achievement Gallery (Koleksi trophy).
-[ ] 10.4 Feature: Streak Counter (Api neon menyala jika login 2 hari berturut).
-[ ] 10.5 Optimization: Image optimization & Caching di Vercel.
-[ ] 10.6 PWA Setup: Tambahkan manifest & icons agar bisa install di HP.
-[ ] 10.7 SEO: Open Graph images untuk sharing ke social media.
-[ ] 10.8 Final Testing: Periksa semua link & alur pembayaran.
-[ ] 10.9 Go Live: Deploy production di Vercel.
-[ ] 10.10 Backup: Setup database backup mingguan di Supabase.
+================================================================
+## FASE 8: HEART & STREAK SYSTEM (THE ENERGY)
+================================================================
+
+[ ] 8.1  Hook useHearts: countdown timer countdown refill per jam
+[ ] 8.2  Auto-refill: cek di /api/hearts/sync setiap mount komponen
+[ ] 8.3  UI: heart bar dengan timer "Next ❤️ in: 00:42:18"
+[ ] 8.4  Modal "Out of Hearts": opsi refill diamond / kembali nanti
+[ ] 8.5  Animasi: heart bergetar saat berkurang
+[ ] 8.6  Streak: cek last_active_date saat user login
+[ ] 8.7  Streak: +1 jika hari ini belum ditandai, reset jika skip 1 hari
+[ ] 8.8  Streak Freeze: kurangi freeze_count sebelum reset streak
+[ ] 8.9  Daily Goal: update xp_today setiap selesai lesson
+[ ] 8.10 Daily Goal: reset xp_today setiap tengah malam
+
+================================================================
+## FASE 9: ACHIEVEMENT SYSTEM (THE TROPHIES)
+================================================================
+
+[ ] 9.1  Seed: insert semua achievement records ke DB
+[ ] 9.2  Logic: cek kondisi achievement setelah tiap quiz selesai
+[ ] 9.3  Modal "Achievement Unlocked" — popup dengan badge + reward
+[ ] 9.4  Achievement: "Street Smart" — selesaikan Chapter 1 Boss
+[ ] 9.5  Achievement: "On Fire" — 3 node berturut tanpa jawab salah
+[ ] 9.6  Achievement: "Flawless" — perfect score di 1 node
+[ ] 9.7  Achievement: "Speed Runner" — selesaikan node < 60 detik
+[ ] 9.8  Achievement: "Daily Grind" — login & belajar 7 hari berturut
+[ ] 9.9  Halaman Achievement Gallery di profile
+
+================================================================
+## FASE 10: SHOP & PAYMENT (THE ECONOMY)
+================================================================
+
+[ ] 10.1 UI: Halaman Shop — katalog power-up & diamond packages
+[ ] 10.2 Beli power-up dengan diamond: kurangi saldo + update inventory
+[ ] 10.3 Setup Midtrans Sandbox account + API Keys
+[ ] 10.4 /api/payment/token — create Snap Token
+[ ] 10.5 Frontend: integrasi Snap.js popup
+[ ] 10.6 /api/payment/webhook — handle notifikasi Midtrans settlement
+[ ] 10.7 Logic: update diamonds user setelah payment berhasil
+[ ] 10.8 UI: animasi konfeti + notifikasi "Payment Successful"
+
+================================================================
+## FASE 11: AI CHAT BUDDY (THE SOCIAL)
+================================================================
+
+[ ] 11.1 Setup Gemini API Key di .env.local / Vercel environment
+[ ] 11.2 /api/chat/buddy — streaming response dari Gemini
+[ ] 11.3 UI: Chat interface (glassmorphism bubbles)
+[ ] 11.4 Context: kirim level tier user ke AI agar respons disesuaikan
+[ ] 11.5 Animasi: typing indicator neon
+[ ] 11.6 Save: simpan chat ke tabel chat_history
+[ ] 11.7 Voice: Web Speech API untuk input suara (opsional)
+
+================================================================
+## FASE 12: LEADERBOARD & KOMPETISI (THE RIVALRY)
+================================================================
+
+[ ] 12.1 UI: Leaderboard — podium top 3 + daftar user
+[ ] 12.2 Logic: query leaderboard_entries di-sort by weekly_xp
+[ ] 12.3 Realtime: Supabase subscription untuk update live
+[ ] 12.4 Logic: Liga mingguan — auto-reset di akhir minggu via cron job Vercel
+[ ] 12.5 UI: league tier badge di profil user
+
+================================================================
+## FASE 13: PROFILE PAGE (THE IDENTITY)
+================================================================
+
+[ ] 13.1 UI: Bento Grid dashboard — XP bar, streak, diamonds, level
+[ ] 13.2 Avatar: upload & ganti foto profil
+[ ] 13.3 Badge collection: tampilkan semua achievement yang didapat
+[ ] 13.4 Stats: total lessons, total XP, longest streak
+[ ] 13.5 Edit username
+
+================================================================
+## FASE 14: POLISH & LAUNCH (THE FINISH LINE)
+================================================================
+
+OPTIMIZATION
+[ ] 14.1 Responsive: pastikan semua halaman oke di mobile & desktop
+[ ] 14.2 Performance: image optimization + Vercel caching
+[ ] 14.3 PWA: manifest.json + ikon → bisa install di HP
+[ ] 14.4 SEO: Open Graph images + meta description setiap halaman
+
+TESTING
+[ ] 14.5 Test flow: Register → trigger new user → dashboard ✓
+[ ] 14.6 Test flow: Mulai lesson → quiz → selesai → XP bertambah ✓
+[ ] 14.7 Test flow: Heart habis → refill dengan diamond ✓
+[ ] 14.8 Test flow: Streak bertambah hari ke-2 ✓
+[ ] 14.9 Test flow: Achievement unlock setelah boss selesai ✓
+[ ] 14.10 Test flow: Payment Midtrans sandbox ✓
+[ ] 14.11 Test flow: AI Chat merespons dalam konteks slang ✓
+
+DEPLOYMENT
+[ ] 14.12 Vercel: link GitHub → auto-deploy dari main branch
+[ ] 14.13 Environment variables dikonfigurasi di Vercel dashboard
+[ ] 14.14 Domain custom (jika ada)
+[ ] 14.15 Supabase: database backup mingguan diaktifkan
+[ ] 14.16 Go Live 🚀
+
+================================================================
+## URUTAN PRIORITAS MVP (MINIMUM VIABLE PRODUCT)
+================================================================
+
+Langkah WAJIB sebelum bisa demo ke orang lain:
+
+STEP 1 — Database siap:
+  [ ] 1.8–1.12 (buat tabel course/section/unit/lesson/exercise)
+  [ ] 1.32–1.35 (seed data Slang Course Chapter 1–5)
+
+STEP 2 — Learning Path bisa diakses:
+  [ ] 0.21 (generate Stitch screen Learning Path)
+  [ ] 3.13, 3.17–3.21 (halaman + komponen path)
+  [ ] 4.2–4.3 (hooks useLearningPath + useUserProgress)
+  [ ] 5.1 (API ambil progress)
+  [ ] 6.1–6.9 (implementasi penuh Learning Path)
+
+STEP 3 — Quiz Engine jalan:
+  [ ] 3.22–3.26 (komponen quiz)
+  [ ] 7.1–7.8 (quiz engine logic)
+  [ ] 5.2 (API submit jawaban)
+
+STEP 4 — Heart & Streak aktif:
+  [ ] 4.4 (hook useHearts)
+  [ ] 5.3 (API hearts/sync)
+  [ ] 8.1–8.5 (heart UI + logic)
+
+================================================================
+# TOTAL PROGRESS SNAPSHOT — April 2026
+================================================================
+
+FASE 0  (Dokumentasi)  : [x] 20/23 selesai
+FASE 1  (Database)     : [x] 8/35  selesai — 27 item pending!
+FASE 2  (Auth)         : [x] 6/10  selesai
+FASE 3  (UI Shell)     : [~] 8/33  selesai — komponen utama belum ada
+FASE 4  (Hooks)        : [~] 1/7   selesai
+FASE 5  (API Routes)   : [ ] 0/10  selesai — belum ada sama sekali
+FASE 6  (Learning Path): [ ] 0/12  selesai — PRIORITY #1
+FASE 7  (Quiz Engine)  : [ ] 0/16  selesai — PRIORITY #2
+FASE 8  (Heart/Streak) : [ ] 0/10  selesai
+FASE 9  (Achievement)  : [ ] 0/9   selesai
+FASE 10 (Shop/Payment) : [ ] 0/8   selesai
+FASE 11 (AI Chat)      : [ ] 0/7   selesai
+FASE 12 (Leaderboard)  : [ ] 0/5   selesai
+FASE 13 (Profile)      : [ ] 0/5   selesai
+FASE 14 (Launch)       : [ ] 0/16  selesai
+──────────────────────────────────────────────────
+OVERALL MVP PROGRESS   : ~15% selesai
+Estimasi ke MVP demo   : Fase 1–7 harus selesai dulu

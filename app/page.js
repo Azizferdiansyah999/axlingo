@@ -10,36 +10,50 @@ export default function Home() {
 
   useEffect(() => {
     const checkUser = async () => {
-      const { data: { session } } = await supabase.auth.getSession()
-      
-      if (session) {
-        const { data: profile } = await supabase
-          .from('profiles')
-          .select('id')
-          .eq('id', session.user.id)
-          .maybeSingle()
+      console.log("Checking user session...")
+      try {
+        const { data: { session }, error } = await supabase.auth.getSession()
+        
+        if (error) throw error
 
-        if (!profile) {
-          try {
+        if (session) {
+          console.log("Session found, checking profile...")
+          const { data: profile } = await supabase
+            .from('profiles')
+            .select('id')
+            .eq('id', session.user.id)
+            .maybeSingle()
+
+          if (!profile) {
+            console.log("Profile not found, initializing...")
             await supabase.from('profiles').upsert([
               { id: session.user.id, username: session.user.email?.split('@')[0] || 'vibe_user' }
-            ])
+            ], { onConflict: 'id' })
             await supabase.from('user_stats').upsert([
               { user_id: session.user.id, xp: 0, level: 1, diamonds: 10 }
-            ])
+            ], { onConflict: 'user_id' })
             await supabase.from('user_hearts').upsert([
               { user_id: session.user.id, current_hearts: 5 }
-            ])
-          } catch (e) {
-            console.error("Initialization error:", e)
+            ], { onConflict: 'user_id' })
           }
+          router.push('/dashboard')
+        } else {
+          console.log("No session found.")
+          setLoading(false)
         }
-        router.push('/dashboard')
-      } else {
+      } catch (err) {
+        console.error("Auth check failed:", err)
         setLoading(false)
       }
     }
+    
+    // Safety timeout: 5 seconds max for loading
+    const timer = setTimeout(() => {
+      setLoading(false)
+    }, 5000)
+
     checkUser()
+    return () => clearTimeout(timer)
   }, [router])
 
   const handleGoogleLogin = async () => {

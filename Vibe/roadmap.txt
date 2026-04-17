@@ -23,9 +23,9 @@ DESIGN SYSTEM
 
 GAME DESIGN
 [x] 0.5  Core game mechanics (core.txt) — heart, XP, streak, diamond
-[x] 0.6  Course Slang blueprint v2.0 (path_2/slang.md) — 28 chapter, 186 node
-[x] 0.7  Course Formal blueprint (path_1/) — 24 section, 108 unit, 481 lesson
-[x] 0.8  DB schema model untuk kedua course (path_1/learning_path.md)
+[x] 0.6  Course English Core blueprint v1.0 (path_1/english_core.md)
+[x] 0.7  12 Quiz Types Specification (Vibe/quiz_types.md)
+[x] 0.8  DB schema update for Quiz Engine (Migration script created)
 
 DATABASE DESIGN
 [x] 0.9  Master schema (Table.txt) — semua tabel terdefinisi
@@ -108,11 +108,11 @@ SQL — KEAMANAN & OTOMASI
 [x] 1.31 SQL Trigger: on_auth_user_created
 
 SQL — SEED DATA
-[x] [!] 1.32 Seed: 1 row di tabel courses (type='slang', title='Axlingo Slang')
-[x] [!] 1.33 Seed: 3 rows di sections (Tier 1, 2, 3)
-[x] [!] 1.34 Seed: 28 rows di units (Chapter 1–28 dari slang.md)
-[x] [!] 1.35 Seed: 196 rows di lessons (Node 1–6 + Boss per chapter)
-[x] 1.36 Seed: Sample exercises untuk Chapter 1 (testing)
+[x] [!] 1.32 Seed: 1 row di tabel courses (type='core', title='English Core')
+[x] [!] 1.33 Seed: 3 rows di sections (Foundation, Intermediate, Advanced)
+[x] [!] 1.34 Seed: units for English Core Course
+[x] [!] 1.35 Seed: lessons for English Core Course
+[x] 1.36 Seed: Sample exercises for Chapter 1 (testing)
 
 ================================================================
 ## FASE 2: AUTH & ROUTING (THE BACKBONE)
@@ -210,7 +210,7 @@ KOMPONEN UMUM
 ## FASE 6: LEARNING PATH FEATURE (THE JOURNEY)
 ================================================================
 
-[x] [!] 6.1  Buat SQL seed data untuk Slang Course (1.32–1.35)
+[x] [!] 6.1  Buat SQL seed data untuk English Core Course (1.32–1.35)
 [x] [!] 6.2  Buat page /dashboard/path/page.js dari Stitch prompt
 [ ] [!] 6.3  Implementasi PathMap — zig-zag dengan connector SVG/CSS
 [ ] [!] 6.4  Logic unlock: node terbuka jika node sebelumnya completed
@@ -335,7 +335,7 @@ TESTING
 [ ] 14.8 Test flow: Streak bertambah hari ke-2 ✓
 [ ] 14.9 Test flow: Achievement unlock setelah boss selesai ✓
 [ ] 14.10 Test flow: Payment Midtrans sandbox ✓
-[ ] 14.11 Test flow: AI Chat merespons dalam konteks slang ✓
+[ ] 14.11 Test flow: AI Chat merespons dalam konteks English Core ✓
 
 DEPLOYMENT
 [ ] 14.12 Vercel: link GitHub → auto-deploy dari main branch
@@ -352,7 +352,7 @@ Langkah WAJIB sebelum bisa demo ke orang lain:
 
 STEP 1 — Database siap:
   [ ] 1.8–1.12 (buat tabel course/section/unit/lesson/exercise)
-  [ ] 1.32–1.35 (seed data Slang Course Chapter 1–5)
+  [ ] 1.32–1.35 (seed data English Core Course Chapter 1–5)
 
 STEP 2 — Learning Path bisa diakses:
   [ ] 0.21 (generate Stitch screen Learning Path)

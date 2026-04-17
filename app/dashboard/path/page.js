@@ -35,8 +35,12 @@ export default function LearningPathPage() {
 
   const handleNodeClick = (node) => {
     console.log('Node clicked:', node)
-    // Future: Route to Lesson/Quiz
-    window.location.href = `/dashboard/quiz?unitId=${node.id}`
+    // Route to Quiz with lessonId
+    if (node.status !== 'locked') {
+      window.location.href = `/dashboard/quiz?lessonId=${node.id}`
+    } else {
+      alert('Selesaikan misi sebelumnya terlebih dahulu!')
+    }
   }
 
   if (loading || authLoading) {

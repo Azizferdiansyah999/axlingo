@@ -95,13 +95,16 @@ Struktur kurikulum utama: Course > Section > Unit > Lesson > Exercise.
 - **exercises** [NEW TABLE]
   - id (UUID, PK)
   - lesson_id (UUID, FK lessons.id)
-  - type (TEXT: multiple_choice, fill_blank, dll)
+  - type (TEXT: mc_text, mc_image, translate, word_bank, dll)
   - order_index (INT)
   - difficulty (INT)
   - prompt (TEXT)
   - correct_answer (JSONB)
   - choices (JSONB)
   - media_url (TEXT)
+  - audio_url (TEXT) [NEW]
+  - hint (TEXT) [NEW]
+  - tags (JSONB) [NEW]
   - explanation (TEXT)
 
 ---
@@ -167,6 +170,14 @@ Sistem ekonomi dan penghargaan.
   - user_id (UUID, FK profiles.id)
   - item_id (TEXT: Sync with tablelist.md)
   - quantity (INT)
+
+- **user_exercise_history** [NEW TABLE]
+  - id (UUID, PK)
+  - user_id (UUID, FK profiles.id)
+  - exercise_id (UUID, FK exercises.id)
+  - is_correct (BOOL)
+  - strength_score (FLOAT)
+  - last_attempt_at (TIMESTAMPTZ)
 
 ---
 *Dokumen ini diperbarui secara otomatis berdasarkan File 04_new_tables.sql.*

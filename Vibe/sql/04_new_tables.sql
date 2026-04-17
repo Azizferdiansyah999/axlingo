@@ -129,14 +129,14 @@ CREATE TABLE IF NOT EXISTS public.exercises (
   type           TEXT NOT NULL,
   order_index    INT NOT NULL,
   difficulty     INT NOT NULL DEFAULT 1,
-  score_weight   FLOAT NOT NULL DEFAULT 1.0,
   prompt         TEXT NOT NULL,
   correct_answer JSONB NOT NULL,
   choices        JSONB,
   media_url      TEXT,
+  audio_url      TEXT,
   hint           TEXT,
+  tags           JSONB DEFAULT '[]',
   explanation    TEXT,
-  tags           TEXT[] DEFAULT '{}',
   created_at     TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 

@@ -114,6 +114,13 @@ SQL — SEED DATA
 [x] [!] 1.35 Seed: lessons for English Core Course
 [x] 1.36 Seed: Sample exercises for Chapter 1 (testing)
 
+AI & MEDIA INFRASTRUCTURE
+[x] 1.37 Cloudflare R2 Storage: Bucket setup & public access configuration
+[x] 1.38 ElevenLabs TTS: Integration with Flash v2.5 model (Efficient)
+[x] 1.39 TTS Caching: MD5 Hashing logic to save ElevenLabs credits via R2
+[x] 1.40 TTS Dashboard: app/dashboard/tts-test untuk validasi suara
+
+
 ================================================================
 ## FASE 2: AUTH & ROUTING (THE BACKBONE)
 ================================================================
@@ -376,11 +383,11 @@ STEP 4 — Heart & Streak aktif:
 ================================================================
 
 FASE 0  (Dokumentasi)  : [x] 20/23 selesai
-FASE 1  (Database)     : [x] 35/35 selesai
+FASE 1  (Database & Inf): [x] 40/40 selesai
 FASE 2  (Auth)         : [x] 6/10  selesai
-FASE 3  (UI Shell)     : [~] 8/33  selesai — komponen utama belum ada
+FASE 3  (UI Shell)     : [~] 8/33  selesai
 FASE 4  (Hooks)        : [~] 1/7   selesai
-FASE 5  (API Routes)   : [ ] 0/10  selesai — belum ada sama sekali
+FASE 5  (API Routes)   : [ ] 0/10  selesai
 FASE 6  (Learning Path): [ ] 0/12  selesai — PRIORITY #1
 FASE 7  (Quiz Engine)  : [ ] 0/16  selesai — PRIORITY #2
 FASE 8  (Heart/Streak) : [ ] 0/10  selesai
@@ -391,5 +398,5 @@ FASE 12 (Leaderboard)  : [ ] 0/5   selesai
 FASE 13 (Profile)      : [ ] 0/5   selesai
 FASE 14 (Launch)       : [ ] 0/16  selesai
 ──────────────────────────────────────────────────
-OVERALL MVP PROGRESS   : ~15% selesai
+OVERALL MVP PROGRESS   : ~20% selesai
 Estimasi ke MVP demo   : Fase 1–7 harus selesai dulu

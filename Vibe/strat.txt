@@ -1,0 +1,27 @@
+Contoh Visualisasi (Unit 1: Greetings)
+Jika kita ambil Unit 1: Greetings, maka perjalanannya akan seperti ini:
+
+Subtopic 1: Hello
+Node 1: Pengenalan "Hello" (100% Baru)
+Node 2: Latihan "Hello" (70% Baru, 30% Review materi Section sebelumnya)
+Node 3-6: Penguatan "Hello" (Berbagai tipe soal: Listening, Writing)
+Node 7: Checkpost Hello (Boss Level kecil)
+Subtopic 2: Hi
+Node 1: Pengenalan "Hi" (100% Baru)
+Node 2: Latihan "Hi" (70% Baru, 30% Review "Hello")
+... dan seterusnya.
+Perhitungan Skala Database
+Agar kamu tidak kewalahan, kita harus otomatisasi ini.
+
+1 Section = 20 Topic x 10 Subtopic x 7 Node = 1.400 Node.
+Jika 1 Node ada 10 soal, maka 1 Section butuh 14.000 soal.
+Strategi Eksekusi (Planning)
+Karena jumlahnya sangat besar, kita tidak bisa melakukan ini secara manual. Kita butuh:
+
+Bank Soal Masif (Pool): Meminta Gemini men-generate setidaknya 50 variasi soal untuk setiap Subtopic.
+Generator Logic: Kita buat fungsi di backend yang secara otomatis menyusun Node 1-7 dengan mengambil 7 soal baru dari pool Subtopic tersebut dan 3 soal lama dari pool Subtopic sebelumnya.
+Apakah kamu setuju dengan skala "1.400 Node per Section" ini? Jika ini terlalu banyak untuk MVP, kita bisa mempertimbangkan 1 Topic langsung jadi 7 Node (tanpa level Subtopic), sehingga 1 Section hanya 140 Node.
+
+Bagaimana menurutmu? Kita sesuaikan dengan target rilis MVP kamu.
+
+5:27 PM

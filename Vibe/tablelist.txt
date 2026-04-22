@@ -78,6 +78,7 @@ Struktur kurikulum utama: Course > Section > Unit > Lesson > Exercise.
   - description (TEXT)
   - order_index (INT)
   - icon_emoji (TEXT)
+  - thumbnail_url (TEXT)
   - is_locked (BOOL)
   - max_crown_level (INT)
   - xp_per_crown (INT)

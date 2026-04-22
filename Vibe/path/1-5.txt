@@ -1,0 +1,433 @@
+
+[
+{
+"order": 1,
+"title": "Greetings: Hello, Hi, Good Morning",
+"topics": [
+{
+"topic": "Hello (Halo)",
+"description": "A common, polite greeting used in both formal and informal situations to acknowledge someone's presence."
+},
+{
+"topic": "Hi (Hai)",
+"description": "A more casual and informal greeting, commonly used among friends, family, and peers."
+},
+{
+"topic": "Good Morning (Selamat Pagi)",
+"description": "A polite greeting used from sunrise until exactly 12:00 PM (noon)."
+},
+{
+"topic": "Good Afternoon (Selamat Siang / Sore)",
+"description": "A polite greeting used from 12:00 PM (noon) until around 5:00 PM or 6:00 PM."
+},
+{
+"topic": "Good Evening (Selamat Malam)",
+"description": "A polite greeting used from 6:00 PM onwards, when arriving at a place or meeting someone."
+},
+{
+"topic": "Good Night (Selamat Malam / Tidur)",
+"description": "Used as a farewell or parting phrase late at night, or right before going to bed."
+},
+{
+"topic": "How are you? (Apa kabar?)",
+"description": "A standard, polite question asking about someone's current state of health or general well-being."
+},
+{
+"topic": "I am fine, thank you (Saya baik-baik saja, terima kasih)",
+"description": "The classic, formal response to 'How are you?', indicating good health and showing politeness."
+},
+{
+"topic": "And you? (Dan kamu?)",
+"description": "A polite follow-up question used to return the inquiry about someone's well-being."
+},
+{
+"topic": "Nice to meet you (Senang bertemu denganmu)",
+"description": "A polite phrase used when you are introduced to someone for the very first time."
+},
+{
+"topic": "Nice to meet you too (Senang bertemu denganmu juga)",
+"description": "The standard and polite reply when someone says 'Nice to meet you'."
+},
+{
+"topic": "Welcome (Selamat datang)",
+"description": "Used to greet someone who has just arrived at a place, such as a home, city, or event."
+},
+{
+"topic": "Long time no see (Lama tidak berjumpa)",
+"description": "An informal greeting used when you meet someone you have not seen for a long period."
+},
+{
+"topic": "What's up? (Ada apa? / Apa kabar?)",
+"description": "A very casual greeting asking what is happening in someone's life, used primarily with friends."
+},
+{
+"topic": "How's it going? (Bagaimana kabarmu?)",
+"description": "A friendly, conversational way of asking how someone is doing or how their day is progressing."
+},
+{
+"topic": "Good to see you (Senang melihatmu)",
+"description": "A warm greeting used when meeting a friend, colleague, or acquaintance you already know."
+},
+{
+"topic": "How do you do? (Apa kabar?)",
+"description": "A very formal greeting used during a first introduction. The traditional response is also 'How do you do?'."
+},
+{
+"topic": "Morning! (Pagi!)",
+"description": "A short, casual form of 'Good Morning', usually said in passing to friends or coworkers."
+},
+{
+"topic": "Have a good day (Semoga harimu menyenangkan)",
+"description": "A polite and positive parting phrase wishing someone well for the rest of their day."
+},
+{
+"topic": "See you later (Sampai jumpa lagi)",
+"description": "A common informal farewell used when you expect to see the person again in the future."
+}
+]
+},
+{
+"order": 2,
+"title": "Personal Pronouns: I, You, We, They",
+"topics": [
+{
+"topic": "I (Saya / Aku)",
+"description": "The first-person singular subject pronoun. Used by the speaker to refer to themselves."
+},
+{
+"topic": "You (Kamu / Anda - Tunggal)",
+"description": "The second-person singular subject pronoun. Used to address one person directly."
+},
+{
+"topic": "We (Kami)",
+"description": "The first-person plural subject pronoun representing the speaker and others, but excluding the person being spoken to (exclusive 'we')."
+},
+{
+"topic": "We (Kita)",
+"description": "The first-person plural subject pronoun representing the speaker, others, AND the person being spoken to (inclusive 'we')."
+},
+{
+"topic": "They (Mereka)",
+"description": "The third-person plural subject pronoun. Used to refer to a group of people, animals, or things."
+},
+{
+"topic": "He (Dia laki-laki)",
+"description": "The third-person singular subject pronoun used to refer to a male."
+},
+{
+"topic": "She (Dia perempuan)",
+"description": "The third-person singular subject pronoun used to refer to a female."
+},
+{
+"topic": "It (Itu / Dia - Benda / Hewan)",
+"description": "The third-person singular subject pronoun used to refer to a non-human entity, such as an object, concept, or animal."
+},
+{
+"topic": "You (Kalian / Anda sekalian - Jamak)",
+"description": "The second-person plural subject pronoun. Used to address two or more people directly."
+},
+{
+"topic": "Me (Saya / Aku - Objek)",
+"description": "The object form of 'I'. Receives the action of the verb (e.g., 'Call me' - Telepon aku)."
+},
+{
+"topic": "You (Kamu / Anda - Objek)",
+"description": "The object form of 'You'. The form does not change from the subject form."
+},
+{
+"topic": "Us (Kami / Kita - Objek)",
+"description": "The object form of 'We'. Receives the action of the verb (e.g., 'Join us' - Bergabunglah dengan kami)."
+},
+{
+"topic": "Them (Mereka - Objek)",
+"description": "The object form of 'They'. Receives the action of the verb (e.g., 'I see them' - Saya melihat mereka)."
+},
+{
+"topic": "Him (Dia laki-laki - Objek)",
+"description": "The object form of 'He'. Receives the action of the verb (e.g., 'Tell him' - Beritahu dia)."
+},
+{
+"topic": "Her (Dia perempuan - Objek)",
+"description": "The object form of 'She'. Receives the action of the verb (e.g., 'I know her' - Saya kenal dia)."
+},
+{
+"topic": "It (Itu - Objek)",
+"description": "The object form of 'It'. The form remains the same as the subject form."
+},
+{
+"topic": "I like it (Saya menyukainya)",
+"description": "An example sentence using 'I' as the subject and 'it' as the object."
+},
+{
+"topic": "They see us (Mereka melihat kami)",
+"description": "An example sentence using 'They' as the subject and 'us' as the object."
+},
+{
+"topic": "We know them (Kita mengenal mereka)",
+"description": "An example sentence using 'We' as the subject and 'them' as the object."
+},
+{
+"topic": "She calls him (Dia perempuan menelepon dia laki-laki)",
+"description": "An example sentence demonstrating third-person singular subject and object interactions."
+}
+]
+},
+{
+"order": 3,
+"title": "Possessive Adjectives: My, Your",
+"topics": [
+{
+"topic": "My (Milikku / Punyaku)",
+"description": "A possessive adjective indicating that something belongs to the speaker (first-person singular)."
+},
+{
+"topic": "Your (Milikmu / Punya Anda - Tunggal)",
+"description": "A possessive adjective indicating that something belongs to the person being spoken to (second-person singular)."
+},
+{
+"topic": "Our (Milik kami / Milik kita)",
+"description": "A possessive adjective indicating that something belongs to the speaker and one or more other people (first-person plural)."
+},
+{
+"topic": "Their (Milik mereka)",
+"description": "A possessive adjective indicating that something belongs to a group of other people, animals, or things (third-person plural)."
+},
+{
+"topic": "His (Miliknya - Laki-laki)",
+"description": "A possessive adjective indicating that something belongs to a specific male person (third-person masculine singular)."
+},
+{
+"topic": "Her (Miliknya - Perempuan)",
+"description": "A possessive adjective indicating that something belongs to a specific female person (third-person feminine singular)."
+},
+{
+"topic": "Its (Miliknya - Benda / Hewan)",
+"description": "A possessive adjective indicating that something belongs to a non-human entity like an object or animal. (No apostrophe)."
+},
+{
+"topic": "Your (Milik kalian - Jamak)",
+"description": "A possessive adjective indicating that something belongs to multiple people being spoken to (second-person plural)."
+},
+{
+"topic": "My book (Buku saya)",
+"description": "A phrase demonstrating the first-person singular possessive adjective paired with a noun."
+},
+{
+"topic": "Your car (Mobilmu)",
+"description": "A phrase demonstrating the second-person possessive adjective paired with a noun."
+},
+{
+"topic": "Our house (Rumah kita / kami)",
+"description": "A phrase demonstrating the first-person plural possessive adjective paired with a noun."
+},
+{
+"topic": "Their friends (Teman-teman mereka)",
+"description": "A phrase demonstrating the third-person plural possessive adjective indicating relationship."
+},
+{
+"topic": "His name (Namanya - laki-laki)",
+"description": "A phrase demonstrating male third-person ownership or attribution."
+},
+{
+"topic": "Her bag (Tasnya - perempuan)",
+"description": "A phrase demonstrating female third-person ownership of an object."
+},
+{
+"topic": "Its tail (Ekornya - hewan)",
+"description": "A phrase demonstrating neutral third-person ownership (e.g., a dog's tail)."
+},
+{
+"topic": "This is my pen (Ini adalah pulpen saya)",
+"description": "A complete sentence using a possessive adjective to declare ownership of a nearby object."
+},
+{
+"topic": "Is that your phone? (Apakah itu ponselmu?)",
+"description": "An interrogative sentence asking to confirm the listener's ownership of an object."
+},
+{
+"topic": "Our teacher is nice (Guru kami baik)",
+"description": "A sentence showing shared association with a person using 'our'."
+},
+{
+"topic": "Their house is big (Rumah mereka besar)",
+"description": "A sentence describing an object collectively owned by others."
+},
+{
+"topic": "Her brother is tall (Saudara laki-lakinya tinggi)",
+"description": "A sentence indicating a family relationship belonging to a female subject."
+}
+]
+},
+{
+"order": 4,
+"title": "The Verb 'To Be' (Singular): I am, You are, He/She/It is",
+"topics": [
+{
+"topic": "I am (Saya adalah)",
+"description": "The first-person singular present tense form of the verb 'to be'. Connects the speaker to a noun or adjective."
+},
+{
+"topic": "You are (Kamu adalah - Tunggal)",
+"description": "The second-person singular present tense form of the verb 'to be'. Connects the listener to a noun or adjective."
+},
+{
+"topic": "He is (Dia laki-laki adalah)",
+"description": "The third-person singular present tense form of the verb 'to be' used for a male subject."
+},
+{
+"topic": "She is (Dia perempuan adalah)",
+"description": "The third-person singular present tense form of the verb 'to be' used for a female subject."
+},
+{
+"topic": "It is (Itu adalah)",
+"description": "The third-person singular present tense form of the verb 'to be' used for objects, animals, or weather."
+},
+{
+"topic": "I am a student (Saya adalah seorang siswa)",
+"description": "An affirmative sentence identifying the speaker's occupation or status."
+},
+{
+"topic": "You are my friend (Kamu adalah temanku)",
+"description": "An affirmative sentence identifying the listener's relationship to the speaker."
+},
+{
+"topic": "He is a doctor (Dia laki-laki adalah seorang dokter)",
+"description": "An affirmative sentence describing a male's profession."
+},
+{
+"topic": "She is beautiful (Dia perempuan itu cantik)",
+"description": "An affirmative sentence using the 'to be' verb to connect a female subject with a descriptive adjective."
+},
+{
+"topic": "It is a cat (Itu adalah seekor kucing)",
+"description": "An affirmative sentence identifying an animal."
+},
+{
+"topic": "I am not (Saya bukan / tidak)",
+"description": "The negative form of 'I am'. Used to deny a state or identity."
+},
+{
+"topic": "You are not (Kamu bukan / tidak)",
+"description": "The negative form of 'You are'. Can be contracted to 'You aren't'."
+},
+{
+"topic": "He is not (Dia laki-laki bukan / tidak)",
+"description": "The negative form of 'He is'. Can be contracted to 'He isn't'."
+},
+{
+"topic": "She is not (Dia perempuan bukan / tidak)",
+"description": "The negative form of 'She is'. Can be contracted to 'She isn't'."
+},
+{
+"topic": "It is not (Itu bukan / tidak)",
+"description": "The negative form of 'It is'. Can be contracted to 'It isn't'."
+},
+{
+"topic": "Am I...? (Apakah saya...?)",
+"description": "The interrogative form of 'I am', created by inverting the subject and the verb."
+},
+{
+"topic": "Are you...? (Apakah kamu...?)",
+"description": "The interrogative form of 'You are', used to ask questions about the listener."
+},
+{
+"topic": "Is he...? (Apakah dia laki-laki...?)",
+"description": "The interrogative form of 'He is', used to ask questions about a male subject."
+},
+{
+"topic": "Is she...? (Apakah dia perempuan...?)",
+"description": "The interrogative form of 'She is', used to ask questions about a female subject."
+},
+{
+"topic": "Is it...? (Apakah itu...?)",
+"description": "The interrogative form of 'It is', used to ask questions about an object, animal, or situation."
+}
+]
+},
+{
+"order": 5,
+"title": "The Verb 'To Be' (Plural): We are, They are",
+"topics": [
+{
+"topic": "We are (Kami / Kita adalah)",
+"description": "The first-person plural present tense form of the verb 'to be'. Links the speakers to a plural noun or adjective."
+},
+{
+"topic": "They are (Mereka adalah)",
+"description": "The third-person plural present tense form of the verb 'to be'. Links multiple other people or items to a noun/adjective."
+},
+{
+"topic": "You are (Kalian adalah - Jamak)",
+"description": "The second-person plural present tense form of 'to be'. Identical to the singular form, but applies to multiple listeners."
+},
+{
+"topic": "We are ready (Kami siap)",
+"description": "An affirmative plural sentence expressing a state of readiness for the group."
+},
+{
+"topic": "They are students (Mereka adalah siswa)",
+"description": "An affirmative plural sentence identifying the occupation or status of a group."
+},
+{
+"topic": "You are all invited (Kalian semua diundang)",
+"description": "An affirmative plural sentence addressing a group directly with 'you'."
+},
+{
+"topic": "We are not (Kami / Kita bukan / tidak)",
+"description": "The negative form of 'We are', indicating that the group does not possess a certain identity or state."
+},
+{
+"topic": "They are not (Mereka bukan / tidak)",
+"description": "The negative form of 'They are', indicating that the group being talked about does not possess a certain identity or state."
+},
+{
+"topic": "You are not (Kalian bukan / tidak)",
+"description": "The plural negative form of 'You are'."
+},
+{
+"topic": "We aren't (Kami / Kita tidak)",
+"description": "The common conversational contraction for 'We are not'."
+},
+{
+"topic": "They aren't (Mereka tidak)",
+"description": "The common conversational contraction for 'They are not'."
+},
+{
+"topic": "Are we...? (Apakah kita...?)",
+"description": "The interrogative form of 'We are', created by inverting the verb and subject. Often used to seek consensus or check status."
+},
+{
+"topic": "Are they...? (Apakah mereka...?)",
+"description": "The interrogative form of 'They are', used to ask questions about a group of other people or things."
+},
+{
+"topic": "Are you...? (Apakah kalian...?)",
+"description": "The plural interrogative form of 'You are', addressing a group with a question."
+},
+{
+"topic": "Aren't we? (Bukannya kita...?)",
+"description": "A negative interrogative contraction, often used as a tag question to seek agreement."
+},
+{
+"topic": "Aren't they? (Bukannya mereka...?)",
+"description": "A negative interrogative contraction, often used as a tag question seeking confirmation about others."
+},
+{
+"topic": "Are we going? (Apakah kita akan pergi?)",
+"description": "An example of a plural interrogative sentence checking on the group's action (present continuous)."
+},
+{
+"topic": "They are my friends (Mereka adalah teman-temanku)",
+"description": "A plural affirmative sentence defining relationship to a group of people."
+},
+{
+"topic": "We are happy to help (Kami senang membantu)",
+"description": "A plural affirmative sentence expressing the group's emotional state or willingness."
+},
+{
+"topic": "Are they at home? (Apakah mereka di rumah?)",
+"description": "An example of asking about the location of a group using 'Are they'."
+}
+]
+}
+]

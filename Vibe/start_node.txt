@@ -1,0 +1,33 @@
+Tantangan terbesarnya adalah: Kamu punya 700 Node x 10 Soal = 7.000 Soal. Jika kita menyuruh Gemini (di AI Studio) untuk men-generate 7.000 soal sekaligus beserta aturan 30/70-nya, AI pasti akan berhalusinasi, error, atau melampaui batas token.
+
+Oleh karena itu, ini adalah Strategi "Pool & Assemble" (Bank Soal & Rakit) untuk mengeksekusi 30/70:
+
+STRATEGI GENERASI SOAL (30/70)
+Tahap 1: Jangan Generate per Node, Generate per Subtopic (Pool)
+Alih-alih menyuruh AI: "Buatkan soal untuk Node 1, Node 2, dst...", kita menyuruh AI membuat Bank Soal untuk satu konsep secara utuh.
+
+Setiap Subtopic (Contoh: "Good Morning") butuh sekitar 30-40 Soal unik.
+Prompt AI Studio (Contoh):
+"Buatkan 40 variasi soal (multiple choice, translate, listening) yang HANYA fokus mengajarkan frasa 'Good Morning'. Output dalam bentuk array JSON."
+
+Total yang digenerate AI: 100 Subtopics x 40 Soal = 4.000 Soal Unik. Ini jauh lebih ringan dan AI bisa sangat fokus pada kualitas soal.
+Tahap 2: The "30/70 Assembler" Script (Logika Perakitan)
+Setelah kita dapat JSON berisi 4.000 soal dari AI Studio, kita gunakan Script Node.js (seperti yang kita pakai tadi) untuk memasukkannya ke database. Di dalam script inilah Matematika 30/70 terjadi.
+
+Script akan merakit 10 soal untuk setiap Node secara otomatis:
+
+Node 1 (Subtopic A): Ambil 10 soal dari Pool A. (100% Baru, karena belum ada masa lalu).
+Node 2 (Subtopic A): Ambil 7 soal dari Pool A (Baru) + 3 soal Acak dari Pool Subtopic sebelum-sebelumnya (Lama).
+Node 3 (Subtopic A): Ambil 7 soal dari Pool A (Baru) + 3 soal Acak dari Pool sebelumnya (Lama).
+...
+Node 7 (BOSS Subtopic A): Ambil 5 soal tersulit dari Pool A + 5 soal tersulit dari Pool masa lalu.
+(Catatan: Saat masuk ke Subtopic B (misal: "Good Afternoon"), maka 30% soal lamanya akan mengambil campuran dari soal "Good Morning" dan "Hello").
+
+Tahap 3: Penyimpanan ke Tabel exercises
+Script assembler tadi akan melakukan INSERT ke tabel exercises sambil menempelkan lesson_id (ID Node) yang tepat berdasarkan hasil rakitan 30/70 di atas.
+
+Keuntungan Strategi Ini:
+AI Tidak Pusing: Gemini hanya fokus membuat soal yang bagus untuk 1 kata/frasa. Dia tidak perlu memikirkan "ini soal baru atau lama".
+Mudah Di-scale: Kalau suatu saat kamu mau ganti rasio jadi 20/80 atau 50/50, kamu tinggal ubah angka di script Node.js, tanpa perlu menyuruh AI generate ulang soalnya.
+Spaced Repetition Murni: Soal 30% yang lama benar-benar diambil secara acak dari database oleh sistem, sehingga kombinasinya tidak pernah sama.
+Apakah logika "Pool & Assemble" ini masuk akal buatmu? Jika setuju, kita bisa mulai membuat template Prompt khusus yang akan kamu copy-paste ke Google AI Studio untuk men-generate "Pool Soal" dari Unit 1

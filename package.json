@@ -20,14 +20,17 @@
     "start": "next start"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.1032.0",
     "@supabase/auth-helpers-nextjs": "^0.15.0",
     "@supabase/ssr": "^0.10.2",
     "@supabase/supabase-js": "^2.102.1",
     "framer-motion": "^12.38.0",
     "lucide-react": "^1.7.0",
     "next": "latest",
+    "node-edge-tts": "^1.2.10",
     "react": "latest",
-    "react-dom": "latest"
+    "react-dom": "latest",
+    "sherpa-onnx": "^1.12.37"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.2.2",

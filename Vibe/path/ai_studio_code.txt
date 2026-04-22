@@ -1,0 +1,1027 @@
+{
+  "sections":[
+    {
+      "order": 1,
+      "title": "SECTION 1: FOUNDATION & DAILY BASICS",
+      "units":[
+        {
+          "order": 1,
+          "title": "Greetings: Hello, Hi, Good Morning",
+          "topics":[
+            "Hello (Halo)",
+            "Hi (Hai)",
+            "Good Morning (Selamat Pagi)",
+            "Good Afternoon (Selamat Siang)",
+            "Good Evening (Selamat Malam)"
+          ]
+        },
+        {
+          "order": 2,
+          "title": "Personal Pronouns: I, You, We, They",
+          "topics":[
+            "I (Saya)",
+            "You (Kamu)",
+            "We (Kami/Kita)",
+            "They (Mereka)"
+          ]
+        },
+        {
+          "order": 3,
+          "title": "Possessive Adjectives: My, Your",
+          "topics":[
+            "My (Milikku)",
+            "Your (Milikmu)",
+            "Our (Milik kami)",
+            "Their (Milik mereka)"
+          ]
+        },
+        {
+          "order": 4,
+          "title": "The Verb \"To Be\" (Singular): I am, You are, He/She/It is",
+          "topics":[
+            "I am (Saya adalah)",
+            "You are (Kamu adalah - Tunggal)",
+            "He is (Dia laki-laki adalah)",
+            "She is (Dia perempuan adalah)",
+            "It is (Itu adalah)"
+          ]
+        },
+        {
+          "order": 5,
+          "title": "The Verb \"To Be\" (Plural): We are, They are",
+          "topics":[
+            "We are (Kami adalah)",
+            "They are (Mereka adalah)",
+            "Are we...? (Apakah kita...?)",
+            "Are they...? (Apakah mereka...?)"
+          ]
+        },
+        {
+          "order": 6,
+          "title": "Introducing Yourself: \"My name is...\"",
+          "topics":[
+            "My name is... (Nama saya...)",
+            "I am... (Saya...)",
+            "Nice to meet you (Senang bertemu denganmu)"
+          ]
+        },
+        {
+          "order": 7,
+          "title": "Basic Questions: \"What is your name?\"",
+          "topics":[
+            "What is your name? (Siapa namamu?)",
+            "How are you? (Apa kabar?)",
+            "I am fine (Saya baik-baik saja)"
+          ]
+        },
+        {
+          "order": 8,
+          "title": "Asking Age: \"How old are you?\"",
+          "topics":[
+            "How old are you? (Berapa umurmu?)",
+            "I am ... years old (Umur saya ... tahun)",
+            "Numbers for age (Angka untuk umur)"
+          ]
+        },
+        {
+          "order": 9,
+          "title": "Polite Phrases: Please, Thank you, Sorry",
+          "topics":[
+            "Please (Tolong/Silakan)",
+            "Thank you (Terima kasih)",
+            "You are welcome (Sama-sama)",
+            "Sorry (Maaf)",
+            "Excuse me (Permisi)"
+          ]
+        },
+        {
+          "order": 10,
+          "title": "Yes/No Expressions: Yes, No, I don't know",
+          "topics":[
+            "Yes (Ya)",
+            "No (Tidak)",
+            "I don't know (Saya tidak tahu)",
+            "Maybe (Mungkin)"
+          ]
+        },
+        {
+          "order": 11,
+          "title": "Numbers 1-10",
+          "topics":[
+            "One, Two, Three (1, 2, 3)",
+            "Four, Five, Six (4, 5, 6)",
+            "Seven, Eight (7, 8)",
+            "Nine, Ten (9, 10)"
+          ]
+        },
+        {
+          "order": 12,
+          "title": "Numbers 11-20",
+          "topics":[
+            "Eleven, Twelve (11, 12)",
+            "Thirteen, Fourteen, Fifteen (13, 14, 15)",
+            "Sixteen, Seventeen (16, 17)",
+            "Eighteen, Nineteen, Twenty (18, 19, 20)"
+          ]
+        },
+        {
+          "order": 13,
+          "title": "Days of the Week: Monday to Sunday",
+          "topics":[
+            "Monday (Senin)",
+            "Tuesday, Wednesday (Selasa, Rabu)",
+            "Thursday, Friday (Kamis, Jumat)",
+            "Saturday, Sunday (Sabtu, Minggu)"
+          ]
+        },
+        {
+          "order": 14,
+          "title": "Alphabet & Spelling: Mengeja nama",
+          "topics":[
+            "A to M Pronunciation (Pelafalan A-M)",
+            "N to Z Pronunciation (Pelafalan N-Z)",
+            "Vowels & Consonants (Huruf Vokal & Konsonan)",
+            "Spelling your name (Mengeja namamu)"
+          ]
+        },
+        {
+          "order": 15,
+          "title": "Common Titles: Mr., Ms., Dr.",
+          "topics":[
+            "Mr. (Bapak/Tuan)",
+            "Ms. / Mrs. (Ibu/Nyonya)",
+            "Dr. (Dokter)",
+            "Sir / Madam (Tuan / Nyonya)"
+          ]
+        },
+        {
+          "order": 16,
+          "title": "Countries & Nationalities: Indonesia, English",
+          "topics":[
+            "Indonesia / Indonesian (Indonesia / Orang Indonesia)",
+            "England / English (Inggris / Orang Inggris)",
+            "USA / American (AS / Orang Amerika)",
+            "Where are you from? (Dari mana asalmu?)"
+          ]
+        },
+        {
+          "order": 17,
+          "title": "Basic Professions (General): Teacher, Student, Doctor",
+          "topics":[
+            "Teacher (Guru)",
+            "Student (Siswa/Mahasiswa)",
+            "Doctor (Dokter)",
+            "Police (Polisi)"
+          ]
+        },
+        {
+          "order": 18,
+          "title": "Basic Professions (Tech): Developer, Engineer",
+          "topics":[
+            "Developer (Pengembang)",
+            "Engineer (Insinyur)",
+            "Designer (Desainer)",
+            "Analyst (Analis)"
+          ]
+        },
+        {
+          "order": 19,
+          "title": "Marital Status: Single, Married",
+          "topics":[
+            "Single (Lajang)",
+            "Married (Menikah)",
+            "Divorced (Bercerai)",
+            "Are you married? (Apakah kamu sudah menikah?)"
+          ]
+        },
+        {
+          "order": 20,
+          "title": "Farewells: Goodbye, See you later",
+          "topics":[
+            "Goodbye (Selamat tinggal)",
+            "See you later (Sampai jumpa lagi)",
+            "Take care (Hati-hati)",
+            "Have a nice day (Semoga harimu menyenangkan)"
+          ]
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "title": "SECTION 2: DUNIA FISIK & DESKRIPSI DASAR",
+      "units":[
+        {
+          "order": 21,
+          "title": "Primary Colors: Red, Blue, Yellow",
+          "topics":[
+            "Red (Merah)",
+            "Blue (Biru)",
+            "Yellow (Kuning)",
+            "What color is it? (Warna apa ini?)"
+          ]
+        },
+        {
+          "order": 22,
+          "title": "Secondary Colors: Green, Orange, Purple",
+          "topics":[
+            "Green (Hijau)",
+            "Orange (Oranye)",
+            "Purple (Ungu)",
+            "Brown (Cokelat)"
+          ]
+        },
+        {
+          "order": 23,
+          "title": "Describing Colors: Light Blue, Dark Green",
+          "topics":[
+            "Light Blue (Biru muda)",
+            "Dark Green (Hijau tua)",
+            "Bright (Terang)",
+            "Dark (Gelap)"
+          ]
+        },
+        {
+          "order": 24,
+          "title": "Basic Shapes: Circle, Square, Triangle",
+          "topics":[
+            "Circle (Lingkaran)",
+            "Square (Persegi)",
+            "Triangle (Segitiga)",
+            "Rectangle (Persegi panjang)"
+          ]
+        },
+        {
+          "order": 25,
+          "title": "Size Adjectives: Big, Small",
+          "topics":[
+            "Big (Besar)",
+            "Small (Kecil)",
+            "Huge (Sangat besar)",
+            "Tiny (Sangat kecil)"
+          ]
+        },
+        {
+          "order": 26,
+          "title": "Appearance Adjectives: Tall, Short",
+          "topics":[
+            "Tall (Tinggi)",
+            "Short (Pendek)",
+            "Beautiful (Cantik)",
+            "Handsome (Tampan)"
+          ]
+        },
+        {
+          "order": 27,
+          "title": "Opposite Adjectives 1: New, Old",
+          "topics":[
+            "New (Baru)",
+            "Old (Lama/Tua)",
+            "Young (Muda)",
+            "Modern (Modern)"
+          ]
+        },
+        {
+          "order": 28,
+          "title": "Opposite Adjectives 2: Hot, Cold",
+          "topics":[
+            "Hot (Panas)",
+            "Cold (Dingin)",
+            "Warm (Hangat)",
+            "Cool (Sejuk)"
+          ]
+        },
+        {
+          "order": 29,
+          "title": "Opposite Adjectives 3: Easy, Difficult",
+          "topics":[
+            "Easy (Mudah)",
+            "Difficult (Sulit)",
+            "Hard (Keras/Sulit)",
+            "Soft (Lembut)"
+          ]
+        },
+        {
+          "order": 30,
+          "title": "Condition Adjectives: Happy, Sad, Tired",
+          "topics":[
+            "Happy (Senang)",
+            "Sad (Sedih)",
+            "Tired (Lelah)",
+            "Angry (Marah)"
+          ]
+        },
+        {
+          "order": 31,
+          "title": "Family Members (Nuclear): Father, Mother, Parents",
+          "topics":[
+            "Father (Ayah)",
+            "Mother (Ibu)",
+            "Parents (Orang tua)",
+            "Child / Children (Anak)"
+          ]
+        },
+        {
+          "order": 32,
+          "title": "Family Members (Extended): Grandfather, Grandmother",
+          "topics":[
+            "Grandfather (Kakek)",
+            "Grandmother (Nenek)",
+            "Uncle (Paman)",
+            "Aunt (Bibi)"
+          ]
+        },
+        {
+          "order": 33,
+          "title": "Siblings: Brother, Sister",
+          "topics":[
+            "Brother (Saudara laki-laki)",
+            "Sister (Saudara perempuan)",
+            "Older brother (Kakak laki-laki)",
+            "Younger sister (Adik perempuan)"
+          ]
+        },
+        {
+          "order": 34,
+          "title": "Body Parts (Head): Face, Eyes, Hair",
+          "topics":[
+            "Face (Wajah)",
+            "Eyes (Mata)",
+            "Nose (Hidung)",
+            "Hair (Rambut)"
+          ]
+        },
+        {
+          "order": 35,
+          "title": "Body Parts (Torso): Hands, Arms, Legs",
+          "topics":[
+            "Hands (Tangan)",
+            "Arms (Lengan)",
+            "Legs (Kaki)",
+            "Stomach (Perut)"
+          ]
+        },
+        {
+          "order": 36,
+          "title": "Personal Belongings 1: Bag, Phone, Key",
+          "topics":[
+            "Bag (Tas)",
+            "Phone (Telepon/HP)",
+            "Key (Kunci)",
+            "Book (Buku)"
+          ]
+        },
+        {
+          "order": 37,
+          "title": "Personal Belongings 2: Wallet, Watch, Glasses",
+          "topics":[
+            "Wallet (Dompet)",
+            "Watch (Jam tangan)",
+            "Glasses (Kacamata)",
+            "Umbrella (Payung)"
+          ]
+        },
+        {
+          "order": 38,
+          "title": "Clothing 1: Shirt, Pants, Dress",
+          "topics":[
+            "Shirt (Kemeja)",
+            "T-shirt (Kaos)",
+            "Pants (Celana)",
+            "Dress (Gaun)"
+          ]
+        },
+        {
+          "order": 39,
+          "title": "Clothing 2: Shoes, Hat, Coat",
+          "topics":[
+            "Shoes (Sepatu)",
+            "Socks (Kaos kaki)",
+            "Hat (Topi)",
+            "Coat (Mantel)"
+          ]
+        },
+        {
+          "order": 40,
+          "title": "Describing Objects: \"The car is red\"",
+          "topics":[
+            "The car is red (Mobil itu merah)",
+            "It is a big bag (Ini tas yang besar)",
+            "My shoes are new (Sepatuku baru)",
+            "Sentence structure for description (Struktur kalimat deskripsi)"
+          ]
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "title": "SECTION 3: RUMAH & LINGKUNGAN SEKITAR",
+      "units":[
+        {
+          "order": 41,
+          "title": "Rooms 1: Living room, Kitchen",
+          "topics":[
+            "Living room (Ruang tamu)",
+            "Kitchen (Dapur)",
+            "Dining room (Ruang makan)",
+            "Hall (Lorong)"
+          ]
+        },
+        {
+          "order": 42,
+          "title": "Rooms 2: Bedroom, Bathroom",
+          "topics":[
+            "Bedroom (Kamar tidur)",
+            "Bathroom (Kamar mandi)",
+            "Garage (Garasi)",
+            "Garden (Taman)"
+          ]
+        },
+        {
+          "order": 43,
+          "title": "House Parts: Door, Window, Wall",
+          "topics":[
+            "Door (Pintu)",
+            "Window (Jendela)",
+            "Wall (Dinding)",
+            "Floor (Lantai)",
+            "Roof (Atap)"
+          ]
+        },
+        {
+          "order": 44,
+          "title": "Furniture 1: Table, Chair",
+          "topics":[
+            "Table (Meja)",
+            "Chair (Kursi)",
+            "Desk (Meja kerja)",
+            "Bookshelf (Rak buku)"
+          ]
+        },
+        {
+          "order": 45,
+          "title": "Furniture 2: Bed, Sofa/Couch",
+          "topics":[
+            "Bed (Tempat tidur)",
+            "Sofa / Couch (Sofa)",
+            "Wardrobe (Lemari pakaian)",
+            "Mirror (Cermin)"
+          ]
+        },
+        {
+          "order": 46,
+          "title": "Kitchen Objects: Spoon, Fork, Plate",
+          "topics":[
+            "Spoon (Sendok)",
+            "Fork (Garpu)",
+            "Knife (Pisau)",
+            "Plate (Piring)",
+            "Glass (Gelas)"
+          ]
+        },
+        {
+          "order": 47,
+          "title": "Electronics (Home): TV, Radio, Lamp",
+          "topics":[
+            "TV (Televisi)",
+            "Radio (Radio)",
+            "Lamp (Lampu)",
+            "Fan (Kipas angin)"
+          ]
+        },
+        {
+          "order": 48,
+          "title": "Electronics (Office): Computer, Laptop, Printer",
+          "topics":[
+            "Computer (Komputer)",
+            "Laptop (Laptop)",
+            "Printer (Pencetak)",
+            "Phone (Telepon kantor)"
+          ]
+        },
+        {
+          "order": 49,
+          "title": "Everyday Verbs 1: Open, Close",
+          "topics":[
+            "Open (Buka)",
+            "Close (Tutup)",
+            "Turn on (Nyalakan)",
+            "Turn off (Matikan)"
+          ]
+        },
+        {
+          "order": 50,
+          "title": "Everyday Verbs 2: Eat, Drink",
+          "topics":[
+            "Eat (Makan)",
+            "Drink (Minum)",
+            "Cook (Memasak)",
+            "Wash (Mencuci)"
+          ]
+        },
+        {
+          "order": 51,
+          "title": "Everyday Verbs 3: Sleep, Wake up",
+          "topics":[
+            "Sleep (Tidur)",
+            "Wake up (Bangun)",
+            "Take a bath (Mandi)",
+            "Rest (Istirahat)"
+          ]
+        },
+        {
+          "order": 52,
+          "title": "Everyday Verbs 4: Read, Write",
+          "topics":[
+            "Read (Membaca)",
+            "Write (Menulis)",
+            "Study (Belajar)",
+            "Listen (Mendengarkan)"
+          ]
+        },
+        {
+          "order": 53,
+          "title": "Common Food 1: Bread, Rice, Egg",
+          "topics":[
+            "Bread (Roti)",
+            "Rice (Nasi)",
+            "Egg (Telur)",
+            "Noodles (Mie)"
+          ]
+        },
+        {
+          "order": 54,
+          "title": "Common Food 2: Fruit, Vegetables, Meat",
+          "topics":[
+            "Fruit (Buah)",
+            "Vegetables (Sayuran)",
+            "Meat (Daging)",
+            "Chicken (Ayam)"
+          ]
+        },
+        {
+          "order": 55,
+          "title": "Drinks: Water, Coffee, Tea",
+          "topics":[
+            "Water (Air)",
+            "Coffee (Kopi)",
+            "Tea (Teh)",
+            "Milk (Susu)"
+          ]
+        },
+        {
+          "order": 56,
+          "title": "Animals (Pets): Dog, Cat, Fish",
+          "topics":[
+            "Dog (Anjing)",
+            "Cat (Kucing)",
+            "Fish (Ikan)",
+            "Bird (Burung)"
+          ]
+        },
+        {
+          "order": 57,
+          "title": "Animals (Common): Bird, Cow, Horse",
+          "topics":[
+            "Cow (Sapi)",
+            "Horse (Kuda)",
+            "Sheep (Domba)",
+            "Chicken (Ayam)"
+          ]
+        },
+        {
+          "order": 58,
+          "title": "Weather Basics: Sun, Rain, Snow",
+          "topics":[
+            "Sun / Sunny (Matahari / Cerah)",
+            "Rain / Rainy (Hujan)",
+            "Snow / Snowy (Salju)",
+            "Wind / Windy (Angin / Berangin)"
+          ]
+        },
+        {
+          "order": 59,
+          "title": "Nature: Tree, Flower, River",
+          "topics":[
+            "Tree (Pohon)",
+            "Flower (Bunga)",
+            "River (Sungai)",
+            "Mountain (Gunung)"
+          ]
+        },
+        {
+          "order": 60,
+          "title": "Time of Day: Morning, Afternoon, Evening, Night",
+          "topics":[
+            "Morning (Pagi)",
+            "Afternoon (Siang/Sore)",
+            "Evening (Malam)",
+            "Night (Malam hari/Waktu tidur)"
+          ]
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "title": "SECTION 4: AKTIVITAS & LOKASI",
+      "units":[
+        {
+          "order": 61,
+          "title": "Common Places 1: School, University",
+          "topics":[
+            "School (Sekolah)",
+            "University (Universitas)",
+            "Library (Perpustakaan)",
+            "Classroom (Ruang kelas)"
+          ]
+        },
+        {
+          "order": 62,
+          "title": "Common Places 2: Office, Hospital",
+          "topics":[
+            "Office (Kantor)",
+            "Hospital (Rumah sakit)",
+            "Clinic (Klinik)",
+            "Bank (Bank)"
+          ]
+        },
+        {
+          "order": 63,
+          "title": "Common Places 3: Market, Shop, Cafe",
+          "topics":[
+            "Market (Pasar)",
+            "Shop (Toko)",
+            "Cafe (Kafe)",
+            "Restaurant (Restoran)"
+          ]
+        },
+        {
+          "order": 64,
+          "title": "Transport 1: Car, Bus, Train",
+          "topics":[
+            "Car (Mobil)",
+            "Bus (Bus)",
+            "Train (Kereta)",
+            "Taxi (Taksi)"
+          ]
+        },
+        {
+          "order": 65,
+          "title": "Transport 2: Bicycle, Plane, Boat",
+          "topics":[
+            "Bicycle (Sepeda)",
+            "Motorcycle (Sepeda motor)",
+            "Plane (Pesawat)",
+            "Boat (Perahu)"
+          ]
+        },
+        {
+          "order": 66,
+          "title": "Action Verbs (Movement): Walk, Run",
+          "topics":[
+            "Walk (Berjalan)",
+            "Run (Berlari)",
+            "Jump (Melompat)",
+            "Go (Pergi)"
+          ]
+        },
+        {
+          "order": 67,
+          "title": "Action Verbs (Social): Talk, Listen, Smile",
+          "topics":[
+            "Talk (Berbicara)",
+            "Listen (Mendengar)",
+            "Smile (Tersenyum)",
+            "Laugh (Tertawa)"
+          ]
+        },
+        {
+          "order": 68,
+          "title": "Prepositions of Place 1: In, On, Under",
+          "topics":[
+            "In (Di dalam)",
+            "On (Di atas menempel)",
+            "Under (Di bawah)",
+            "Above (Di atas melayang)"
+          ]
+        },
+        {
+          "order": 69,
+          "title": "Prepositions of Place 2: Next to, Between",
+          "topics":[
+            "Next to (Di sebelah)",
+            "Between (Di antara)",
+            "Behind (Di belakang)",
+            "In front of (Di depan)"
+          ]
+        },
+        {
+          "order": 70,
+          "title": "Directions 1: Left, Right",
+          "topics":[
+            "Left (Kiri)",
+            "Right (Kanan)",
+            "Up (Atas)",
+            "Down (Bawah)"
+          ]
+        },
+        {
+          "order": 71,
+          "title": "Directions 2: Go straight, Turn left/right",
+          "topics":[
+            "Go straight (Jalan lurus)",
+            "Turn left (Belok kiri)",
+            "Turn right (Belok kanan)",
+            "Stop (Berhenti)"
+          ]
+        },
+        {
+          "order": 72,
+          "title": "Simple Present \"Like\": \"I like apples\"",
+          "topics":[
+            "I like apples (Saya suka apel)",
+            "Do you like...? (Apakah kamu suka...?)",
+            "I don't like... (Saya tidak suka...)"
+          ]
+        },
+        {
+          "order": 73,
+          "title": "Simple Present \"Have\": \"I have a car\"",
+          "topics":[
+            "I have a car (Saya punya mobil)",
+            "Do you have...? (Apakah kamu punya...?)",
+            "I don't have... (Saya tidak punya...)"
+          ]
+        },
+        {
+          "order": 74,
+          "title": "Basic Quantifiers: Some, Many, All",
+          "topics":[
+            "Some (Beberapa)",
+            "Many (Banyak - dapat dihitung)",
+            "Much (Banyak - tak dapat dihitung)",
+            "All (Semua)"
+          ]
+        },
+        {
+          "order": 75,
+          "title": "Demonstrative Pronouns (Singular): This, That",
+          "topics":[
+            "This (Ini - dekat)",
+            "That (Itu - jauh)",
+            "Is this...? (Apakah ini...?)",
+            "Is that...? (Apakah itu...?)"
+          ]
+        },
+        {
+          "order": 76,
+          "title": "Demonstrative Pronouns (Plural): These, Those",
+          "topics":[
+            "These (Ini - jamak)",
+            "Those (Itu - jamak)",
+            "Are these...? (Apakah ini...?)",
+            "Are those...? (Apakah itu...?)"
+          ]
+        },
+        {
+          "order": 77,
+          "title": "Question Words 1: Who, What",
+          "topics":[
+            "Who (Siapa)",
+            "What (Apa)",
+            "Who is that? (Siapa itu?)",
+            "What is this? (Apa ini?)"
+          ]
+        },
+        {
+          "order": 78,
+          "title": "Question Words 2: Where, When",
+          "topics":[
+            "Where (Di mana)",
+            "When (Kapan)",
+            "Where are you? (Kamu di mana?)",
+            "When is it? (Kapan itu?)"
+          ]
+        },
+        {
+          "order": 79,
+          "title": "Question Words 3: Why, How",
+          "topics":[
+            "Why (Mengapa)",
+            "How (Bagaimana)",
+            "Why are you sad? (Mengapa kamu sedih?)",
+            "How are you? (Bagaimana kabarmu?)"
+          ]
+        },
+        {
+          "order": 80,
+          "title": "Numbers 21-100",
+          "topics":[
+            "Twenty-one to Thirty (21-30)",
+            "Tens: 40, 50, 60 (Puluhan)",
+            "Seventy to Ninety (70-90)",
+            "One Hundred (100)"
+          ]
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "title": "SECTION 5: DUNIA KERJA & TEKNOLOGI",
+      "units":[
+        {
+          "order": 81,
+          "title": "Tech Hardware: Keyboard, Mouse, Screen",
+          "topics":[
+            "Keyboard (Papan ketik)",
+            "Mouse (Tetikus)",
+            "Screen (Layar)",
+            "Cable (Kabel)"
+          ]
+        },
+        {
+          "order": 82,
+          "title": "Tech Actions 1: Click, Type, Scroll",
+          "topics":[
+            "Click (Klik)",
+            "Type (Ketik)",
+            "Scroll (Gulir)",
+            "Swipe (Geser)"
+          ]
+        },
+        {
+          "order": 83,
+          "title": "Tech Actions 2: Login, Logout, Sign up",
+          "topics":[
+            "Login (Masuk)",
+            "Logout (Keluar)",
+            "Sign up (Daftar)",
+            "Password (Kata sandi)"
+          ]
+        },
+        {
+          "order": 84,
+          "title": "Software Basics: App, File, Folder",
+          "topics":[
+            "App (Aplikasi)",
+            "File (Berkas)",
+            "Folder (Folder)",
+            "Download (Unduh)"
+          ]
+        },
+        {
+          "order": 85,
+          "title": "Internet Basics: Link, Website, Email",
+          "topics":[
+            "Link (Tautan)",
+            "Website (Situs web)",
+            "Email (Surel)",
+            "Search (Cari)"
+          ]
+        },
+        {
+          "order": 86,
+          "title": "Workplace Objects: Desk, Pen, Paper",
+          "topics":[
+            "Desk (Meja kerja)",
+            "Pen (Pulpen)",
+            "Paper (Kertas)",
+            "Notebook (Buku catatan)"
+          ]
+        },
+        {
+          "order": 87,
+          "title": "Workplace Verbs: Work, Help, Meet",
+          "topics":[
+            "Work (Bekerja)",
+            "Help (Membantu)",
+            "Meet (Bertemu)",
+            "Call (Menelepon)"
+          ]
+        },
+        {
+          "order": 88,
+          "title": "Simple \"Can\" (Ability): \"I can code\"",
+          "topics":[
+            "I can code (Saya bisa ngoding)",
+            "Can you help me? (Bisakah kamu membantuku?)",
+            "I cannot / can't (Saya tidak bisa)"
+          ]
+        },
+        {
+          "order": 89,
+          "title": "Simple \"Want\" (Desire): \"I want to learn\"",
+          "topics":[
+            "I want to learn (Saya ingin belajar)",
+            "Do you want...? (Apakah kamu ingin...?)",
+            "I don't want... (Saya tidak ingin...)"
+          ]
+        },
+        {
+          "order": 90,
+          "title": "Hobby Basics: Sport, Music, Game",
+          "topics":[
+            "Sport (Olahraga)",
+            "Music (Musik)",
+            "Game (Permainan)",
+            "Reading (Membaca)"
+          ]
+        },
+        {
+          "order": 91,
+          "title": "Linking Words 1: And, Or",
+          "topics":[
+            "And (Dan)",
+            "Or (Atau)",
+            "You and I (Kamu dan aku)",
+            "Tea or coffee? (Teh atau kopi?)"
+          ]
+        },
+        {
+          "order": 92,
+          "title": "Linking Words 2: But, Because",
+          "topics":[
+            "But (Tetapi)",
+            "Because (Karena)",
+            "I like it, but... (Saya suka, tapi...)",
+            "Because it is good (Karena itu bagus)"
+          ]
+        },
+        {
+          "order": 93,
+          "title": "Simple Present Habits: \"I wake up at 7\"",
+          "topics":[
+            "I wake up at 7 (Saya bangun jam 7)",
+            "I go to work (Saya pergi bekerja)",
+            "Every day (Setiap hari)"
+          ]
+        },
+        {
+          "order": 94,
+          "title": "Telling Time (Hours): \"It is one o'clock\"",
+          "topics":[
+            "One o'clock (Jam satu tepat)",
+            "Half past two (Jam setengah tiga)",
+            "Quarter to... (Kurang seperempat)",
+            "AM vs PM"
+          ]
+        },
+        {
+          "order": 95,
+          "title": "Money & Prices: Dollar, Cent, Cost",
+          "topics":[
+            "Dollar (Dolar)",
+            "Cent (Sen)",
+            "Rupiah (Rupiah)",
+            "Cost / Price (Harga)"
+          ]
+        },
+        {
+          "order": 96,
+          "title": "Buying Something: \"How much is this?\"",
+          "topics":[
+            "How much is this? (Berapa harganya?)",
+            "I will buy it (Saya akan membelinya)",
+            "Cash or card? (Tunai atau kartu?)"
+          ]
+        },
+        {
+          "order": 97,
+          "title": "Ordering Food: \"I would like a coffee\"",
+          "topics":[
+            "I would like a coffee (Saya pesan kopi)",
+            "Can I have the menu? (Boleh minta menu?)",
+            "The bill, please (Tolong tagihannya)"
+          ]
+        },
+        {
+          "order": 98,
+          "title": "Describing a Room: \"The room is big\"",
+          "topics":[
+            "The room is big (Ruangannya besar)",
+            "There is a bed (Ada sebuah kasur)",
+            "There are chairs (Ada kursi-kursi)"
+          ]
+        },
+        {
+          "order": 99,
+          "title": "Describing a Day: \"Today is Monday\"",
+          "topics":[
+            "Today is Monday (Hari ini hari Senin)",
+            "It is a busy day (Ini hari yang sibuk)",
+            "I am happy today (Saya senang hari ini)"
+          ]
+        },
+        {
+          "order": 100,
+          "title": "Final Review: Review Unit 1-99",
+          "topics":[
+            "Review Unit 1-20 (Dasar & Sapaan)",
+            "Review Unit 21-40 (Deskripsi & Fisik)",
+            "Review Unit 41-60 (Rumah & Lingkungan)",
+            "Review Unit 61-99 (Aktivitas, Lokasi & Kerja)"
+          ]
+        }
+      ]
+    }
+  ]
+}

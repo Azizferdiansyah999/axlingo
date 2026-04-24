@@ -46,10 +46,18 @@ export default function DashboardLayout({ children }) {
       {/* Main Content */}
       <main className="flex-1 lg:ml-72 flex flex-col min-h-screen relative pb-24 lg:pb-0">
         {/* Topbar: HUD with Glassmorphism */}
-        <header className="h-20 flex items-center justify-between lg:justify-end px-6 lg:px-10 sticky top-0 bg-[#0e0e0e]/80 backdrop-blur-xl z-30 border-b border-white/5">
+        <header className="h-20 flex items-center justify-between px-6 lg:px-10 sticky top-0 bg-[#0e0e0e]/80 backdrop-blur-xl z-30 border-b border-white/5">
           {/* Mobile Logo */}
           <div className="lg:hidden">
              <span className="text-xl font-black bg-gradient-to-r from-[#5cb8fd] to-[#e67aff] bg-clip-text text-transparent italic">AXL</span>
+          </div>
+
+          {/* Section Title (Desktop) - Dynamic Placeholder */}
+          <div className="hidden lg:flex items-center gap-4">
+            <div className="h-6 w-1 bg-[#5cb8fd] shadow-[0_0_10px_#5cb8fd] rounded-full"></div>
+            <span id="nav-section-title" className="font-headline font-bold text-sm text-white/80 uppercase tracking-[0.2em]">
+              Section 1 : The Matrix
+            </span>
           </div>
 
           <div className="flex items-center gap-3 lg:gap-6">
